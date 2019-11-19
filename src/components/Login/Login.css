@@ -1,0 +1,48 @@
+.background {
+    background-image: url('https://s11284.pcdn.co/wp-content/uploads/2019/03/rows-new-cars-sunset.jpg');
+    background-size: cover;
+}
+
+.login {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #E6E8E6;
+    width: 400px;
+    height: 250px;
+    border-radius: 10px;
+  }
+
+  .login .inputs {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .inputs input {
+      margin: 5px 0;
+      border: none;
+      height: 20px;
+      border-radius: 3px;
+  }
+
+  .login .buttons {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 50px;
+  }
+
+  .buttons button {
+      margin: 0 5px;
+      background: ghostwhite;
+      border-radius: 5px;
+      color: #30BCED;
+      border: none;
+      height: 25px;
+      font-size: 15px;
+      font-weight: 800;
+  }

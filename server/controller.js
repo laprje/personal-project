@@ -57,5 +57,19 @@ module.exports = {
         if (req.session.user) {
           res.status(200).send(req.session.user)
         }
+      },
+
+      getOne(req, res) {
+        const db = req.app.get('db')
+        const {make, model, year} = req.body
+
+        db.get_one([make, model, year])
+          .then(car => {
+            res.status(200).send(car)
+          })
+          .catch(err => {
+            res.status(500).send("Something went wrong.")
+            console.log(err)
+          })
       }
     }

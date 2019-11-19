@@ -6,6 +6,7 @@ import Wizard1 from './components/Wizard/Wizard1'
 import Wizard2 from './components/Wizard/Wizard2'
 import Wizard3 from './components/Wizard/Wizard3'
 import Vehicle from './components/Vehicle/Vehicle'
+import Profile from './components/Profile/Profile'
 
 export default (
     <Switch>
@@ -15,5 +16,6 @@ export default (
         <Route path='/wizard2' component={Wizard2} />
         <Route path='/wizard3' component={Wizard3} />
         <Route path='/vehicle' component={Vehicle} />
+        <Route path='/profile' component={Profile} />
     </Switch>
 )

@@ -1,15 +1,55 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
+import { connect } from "react-redux";
+import { updateMake, updateModel, updateYear } from "../../ducks/reducer";
+
 
 class Wizard3 extends Component {
+  componentDidMount() {
+    console.log(this.props);
+  }
+
+  handleChange = (key, value) => {
+    this.setState({ [key]: value });
+  };
+
+  
+
   render() {
     return (
-      <div>
+      <div className="wizard">
         <Header />
-        Wizard3.js
+        <h2>Find Your Car</h2>
+        <input
+          placeholder={
+            this.props.year ? this.props.year : "Enter a Vehicle Year"
+          }
+          type="text"
+          onChange={e => this.handleChange("year", e.target.value)}
+        />
+        <button
+          onClick={() => this.props.history.push("/wizard2")}
+          className="back-button"
+        >
+          Back
+        </button>
+        <button onClick={() => this.props.history.push('/vehicle')} className="next-button">
+          Finish
+        </button>
       </div>
     );
   }
 }
 
-export default Wizard3;
+function mapStateToProps(reduxState) {
+  const { make, model, year } = reduxState;
+  return {
+    make, model, year
+  };
+}
+
+export default connect(mapStateToProps, {
+  updateMake,
+  updateModel,
+  updateYear
+})(Wizard3);

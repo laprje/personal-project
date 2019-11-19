@@ -11,7 +11,7 @@ class Header extends Component {
     super();
     this.state = {
       user: {}
-    }
+    };
     this.logout = this.logout.bind(this);
   }
 
@@ -19,14 +19,16 @@ class Header extends Component {
     axios.get("/api/auth/me").then(user => {
       this.setState({
         user: user.data
-      })
+      });
     });
-    
-  };
+  }
 
   logout = () => {
     axios.post("/auth/logout").then(res => {
-      Swal.fire(res.data.message);
+        Swal.fire({
+            title: "Come again soon!",
+            icon: "success"
+          });
       this.props.updateUserInfo({
         email: "",
         name: "",
@@ -37,22 +39,43 @@ class Header extends Component {
   };
   render() {
     return (
-      <div className="Nav">
-        <div className="profile">
-          {this.state.user.profile_img && <img src={this.state.user.profile_img} alt="" />}{" "}
-          {this.state.user.email && <h4>{this.state.user.email}</h4>}
+      <div className="Header">
+        <div className="header-container">
+          <div className="logo-container">
+            <h2>AutoValue</h2>
+          </div>
+          <div className="button-container">
+            <Link to="/home">
+              <button className="icon">
+                <i class="fas fa-home"></i>
+              </button>
+            </Link>
+            <Link to="/profile">
+              <div className="profile-link">
+                <button className="icon">
+                  <i class="fas fa-user"></i>
+                </button>
+                <div className="email">
+                  {this.state.user.email && <h4>{this.state.user.email}</h4>}
+                </div>
+              </div>
+            </Link>
+            <Link to="/">
+              <button className="logout-btn" onClick={this.logout}>
+                Log out
+              </button>
+            </Link>
+          </div>
         </div>
-        <div className="dash-new-container">
-          <Link to="/dashboard">
-            <button><i class="fas fa-home"></i></button>
-          </Link>
-        </div>
-        <Link to="/">
-          <button onClick={this.logout}>Log out</button>
-        </Link>
       </div>
     );
   }
 }
 
-export default Header
+function mapStateToProps(state) {
+  return {
+    email: state.email
+  };
+}
+
+export default connect(mapStateToProps, { updateUserInfo })(Header);
