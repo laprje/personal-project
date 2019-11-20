@@ -55,9 +55,9 @@ class Header extends Component {
                 <button className="icon">
                   <i class="fas fa-user"></i>
                 </button>
-                <div className="email">
+                {/* <div className="email">
                   {this.state.user.email && <h4>{this.state.user.email}</h4>}
-                </div>
+                </div> */}
               </div>
             </Link>
             <Link to="/">

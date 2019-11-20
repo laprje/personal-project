@@ -19,7 +19,6 @@ class Vehicle extends Component {
   getCar() {
     const { make, model, year } = this.props;
     axios.post("/api/car", { make, model, year }).then(res => {
-      console.log(res.data);
       this.setState({
         carOnDisplay: res.data
       });

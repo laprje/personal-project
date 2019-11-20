@@ -56,7 +56,7 @@ module.exports = {
       getUser(req, res){
         if (req.session.user) {
           res.status(200).send(req.session.user)
-          console.log(res.status.user)
+          console.log(req.session.user)
         }
       },
 
@@ -73,5 +73,21 @@ module.exports = {
             res.status(500).send("Something went wrong.")
             console.log(err)
           })
+      },
+
+      changeEmail(req, res) {
+        const db = req.app.get('db')
+        const {user_id, email} = req.params;
+        
+
+        db.edit_user([+user_id, email])
+          .then(result => {
+            res.status(200).send(result)
+          })
+          .catch(err => {
+            res.status(500).send('something went wrong.')
+            console.log(err)
+          })
+          req.session.user = { user_id, email }
       }
     }

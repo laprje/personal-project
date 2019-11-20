@@ -1,0 +1,49 @@
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile h2 {
+    margin-top: 100px;
+}
+
+.profile .profile-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+    background: #E6E8E6;
+    width: 600px;
+    height: 300px;
+    border-radius: 8px;
+}
+
+.left-box i {
+    font-size: 100px;
+    color: #CED0CE;
+  
+}
+
+.left-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ghostwhite;
+    border: 5px #30BCED;
+    height: 200px;
+    width: 200px;
+    border-radius: 8px;
+}
+
+.right-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    height: 200px;
+    width: 300px;
+    border-radius: 8px;
+}
