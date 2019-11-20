@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import { connect } from "react-redux";
 import { updateMake, updateModel, updateYear } from "../../ducks/reducer";
+import './Wizard.css'
 
 class Wizard1 extends Component {
 
@@ -14,7 +15,8 @@ class Wizard1 extends Component {
     return (
       <div className="wizard">
         <Header />
-        <h2>Find Your Car</h2>
+        <div className="container">
+        <h2 className="wizard-header">Find Your Car</h2>
         <div className="inputs">
           <input
             placeholder={
@@ -43,7 +45,7 @@ class Wizard1 extends Component {
             onClick={() => this.props.history.push("/home")}
             className="back-button"
           >
-            Back
+            Cancel
           </button>
           <button
             onClick={() => this.props.history.push("/vehicle")}
@@ -51,6 +53,7 @@ class Wizard1 extends Component {
           >
             Search
           </button>
+          </div>
         </div>
       </div>
     );

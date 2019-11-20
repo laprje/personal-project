@@ -2,7 +2,7 @@
     height: 90px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     background: #30BCED;
     justify-content: center;
 }

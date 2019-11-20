@@ -5,42 +5,48 @@
     
 } */
 
-
-.module {
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    color: ghostwhite;
+.all .home-header {
+  position: fixed;
 }
 
-.module button {
-    background: ghostwhite;
-    border-radius: 5px;
-    color: #30BCED;
-    border: none;
-    height: 40px;
-    font-size: 15px;
-    font-weight: 800;
+.home {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+  color: ghostwhite;
+  background-image: url("../../assets/background.jpg");
+  background-size: auto 100vw;
+
+  padding: none;
+  margin: 0px;
 }
 
-.module::before {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vw;
-    position: absolute;
-    background-image: url('https://s11284.pcdn.co/wp-content/uploads/2019/03/rows-new-cars-sunset.jpg');
-    background-size: cover;
-    filter: grayscale(100%);
+.buttons {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 300%);
+  margin: 0 0;
 }
 
-.module-inside {
-    position: relative;
-
+.buttons button {
+  background: ghostwhite;
+  border-radius: 5px;
+  color: #30bced;
+  border: none;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 800;
 }
 
-Link {
-    text-decoration: none;
+.big-h1 h1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  color: ghostwhite;
+  font-family: "Alatsi", sans-serif;
+  font-size: 60px;
 }

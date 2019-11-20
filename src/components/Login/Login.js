@@ -57,8 +57,9 @@ class Login extends Component {
 
   render() {
     return (
-        <>
+        <div className="login-all">
         <div className="background"></div>
+        <h1>AutoCheck</h1>
       <div className="login">
         <div className="inputs">
           <input
@@ -76,12 +77,13 @@ class Login extends Component {
           />
         </div>
         <br></br>
+      
         <div className="buttons">
           <button onClick={this.register}>Register</button>
           <button onClick={this.login}>Log In</button>
         </div>
       </div>
-      </>
+      </div>
     );
   }
 }
