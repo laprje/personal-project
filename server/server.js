@@ -26,7 +26,7 @@ app.get('/auth/getSession', ctrl.getSession)
 app.get('/api/auth/me', ctrl.getUser)
 
 //endpoints
-app.get('/api/car', ctrl.getOne)
+app.post('/api/car', ctrl.getOne)
 
 massive(CONNECTION_STRING).then(db => {
     console.log('Database Connected.')

@@ -9,7 +9,7 @@ const initialState = {
 
 //action constants
 const UPDATE_USER_INFO = "UPDATE_USER_INFO";
-const UPDATE_LIST = "UPDATE_LIST";
+// const UPDATE_LIST = "UPDATE_LIST";
 const UPDATE_MAKE = "UPDATE_MAKE";
 const UPDATE_MODEL = "UPDATE_MODEL";
 const UPDATE_YEAR = "UPDATE_YEAR";
@@ -25,21 +25,21 @@ export function updateUserInfo(userObj) {
 export function updateMake(make) {
     return {
         type: UPDATE_MAKE,
-        payload: make
+        payload: {make}
     }
 }
 
 export function updateModel(model) {
     return {
         type: UPDATE_MODEL,
-        payload: model
+        payload: {model}
     }
 }
 
 export function updateYear(year) {
     return {
         type: UPDATE_YEAR,
-        payload: year
+        payload: {year}
     }
 }
 

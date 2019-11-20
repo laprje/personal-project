@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import { connect } from "react-redux";
 import axios from "axios";
-import { updateYear } from "../../ducks/reducer";
+
 
 class Vehicle extends Component {
   constructor() {
@@ -18,11 +18,11 @@ class Vehicle extends Component {
   }
 
   getCar() {
-    axios.get("/api/car", this.props).then(res => {
-      console.log(res);
+      const {make, model, year} = this.props
+    axios.post("/api/car", {make, model, year}).then(res => {
       this.setState({
         carOnDisplay: res.data
-      });
+      },() => console.log(this.state));
     });
   }
 
@@ -31,13 +31,14 @@ class Vehicle extends Component {
   }
 
   render() {
+      ///you're almost there. You just need to get the values onto state and then display them.
     return (
       <div>
         <Header />
-        <h3>{this.props.year}</h3>
-        <h3>{this.props.make}</h3>
-        <h3>{this.props.model}</h3>
-        <img src={this.props.img} alt="" />
+        <h3>{this.state.carOnDisplay.year}</h3>
+        <h3>{this.state.carOnDisplay.make}</h3>
+        <h3>{this.state.carOnDisplay.model}</h3>
+        <img src={this.state.carOnDisplay.img} alt="" />
       </div>
     );
   }
@@ -47,6 +48,4 @@ function mapStateToProps(reduxState) {
   return reduxState;
 }
 
-export default connect(mapStateToProps, {
-  updateYear
-})(Vehicle);
+export default connect(mapStateToProps)(Vehicle);

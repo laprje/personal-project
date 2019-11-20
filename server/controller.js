@@ -62,9 +62,10 @@ module.exports = {
       getOne(req, res) {
         const db = req.app.get('db')
         const {make, model, year} = req.body
-
-        db.get_one([make, model, year])
+        
+        db.get_one([make, model, +year])
           .then(car => {
+            console.log(car)
             res.status(200).send(car)
           })
           .catch(err => {

@@ -44,12 +44,10 @@ class Wizard3 extends Component {
 function mapStateToProps(reduxState) {
   const { make, model, year } = reduxState;
   return {
-    make, model, year
+   reduxState
   };
 }
 
 export default connect(mapStateToProps, {
-  updateMake,
-  updateModel,
   updateYear
 })(Wizard3);
