@@ -1,4 +1,4 @@
-/* .background {
+/* .home {
     background-image: url('https://s11284.pcdn.co/wp-content/uploads/2019/03/rows-new-cars-sunset.jpg');
     height: 100vh;
     filter: brightness(35%) saturate(70%);
@@ -51,4 +51,78 @@
   font-size: 60px;
 }
 
+/* media queries */
 
+@media (max-width: 1670px) {
+    .big-h1 h1 {
+      font-size: 70px;
+    }
+  
+    .home {
+      background-size: auto 100vh;
+    }
+  }
+
+  @media (max-width: 1230px) {
+    .big-h1 h1 {
+      font-size: 70px;
+    }
+  
+    .home {
+      background-size: auto 100vh;
+    }
+  }
+
+@media (max-width: 800px) {
+    .big-h1 h1 {
+      font-size: 60px;
+    }
+  
+    .home {
+      background-size: auto 100vh;
+    }
+  }
+
+@media (max-width: 654px) {
+  .big-h1 h1 {
+    font-size: 40px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -105%);
+    margin-bottom: 0px;
+  }
+
+  .big-logo i {
+      font-size: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .big-h1 h1 {
+    font-size: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -105%);
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 430px) {
+  .big-h1 h1 {
+    font-size: 25px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -155%);
+    margin-bottom: 0px;
+  }
+  .login {
+    width: 275px;
+  }
+  .buttons button {
+    margin: 0 2.5px;
+    height: 30px;
+  }
+}

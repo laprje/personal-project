@@ -1,39 +1,99 @@
 .wizard {
-    background-image: url('../../assets/background.jpg');
-    background-size: auto 100vw;
-    height: 100vh;
-    width: 100vw;
-    color: ghostwhite;
+  background-image: url("../../assets/background.jpg");
+  background-size: auto 100vw;
+  height: 100vh;
+  width: 100vw;
+  color: ghostwhite;
 }
 
-
 .container {
-margin-top: 150px;
-display: grid;
-top: 0;
-left: 0;
+  margin-top: 150px;
+  display: grid;
+  top: 0;
+  left: 0;
 }
 
 .wizard .inputs {
-    margin-top: 70px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .wizard .inputs input {
-    height: 40px;
-    width: 200px;
-    margin-left: 10px;
-    margin-right: 10px;
+  height: 40px;
+  width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .wizard .wizard-header {
-    font-family: 'Alatsi', sans-serif;
-    
+  font-family: "Alatsi", sans-serif;
 }
 
 .wizard .buttons {
-    margin: 0 0;
+  margin: 0 0;
+  position: fixed;
+}
+
+/* media queries */
+
+@media (max-width: 1670px) {
+    .wizard {
+        background-size: auto 100vh;
+    }
+}
+
+@media (max-width: 1230px) {
+    .wizard {
+        background-size: auto 100vh;
+    }
+}
+
+@media (max-width: 850px) {
+  .wizard {
+    background-size: auto 100vh;
+  }
+}
+
+@media (max-width: 675px) {
+    .wizard .container .inputs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .wizard .container .buttons {
+        margin-top: 0px;
+    }
+}
+
+@media (max-height: 721px) {
+    .wizard .buttons {
+        margin-top: 20px;
+        box-sizing: border-box;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 350%)
+    }
+}
+
+@media (max-height: 680px) {
+    .wizard .buttons {
+        margin-top: 20px;
+        box-sizing: border-box;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 550%)
+    }
+}
+
+@media (max-width: 350px) {
+    .wizard {
+        display: flex;
+        justify-content: flex-end;
+    }
 }

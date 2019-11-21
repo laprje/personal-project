@@ -67,3 +67,58 @@
     margin-bottom: 25px;
 }
 
+/* media queries */
+
+@media (max-width: 1670px) {
+    .profile {
+        background-size: auto 100vh;
+    }
+}
+
+@media (max-width: 1230px) {
+    .profile {
+        background-size: auto 100vh;
+    }
+}
+
+@media (max-width: 850px) {
+  .profile {
+    background-size: auto 100vh;
+  }
+}
+
+@media (max-width: 620px) {
+    .profile .profile-box {
+        width: 450px;
+        margin-top: 50px;
+    }
+
+    .profile .h2 {
+        margin-top: 10px;
+    }
+
+    .left-box {
+        width: 125px;
+        height: 125px;
+    }
+
+    .right-box {
+        width: 200px;
+        height: 100px;
+    }
+}
+
+@media(max-width: 470px) {
+    .profile .profile-box {
+        width: 300px;
+        height: 200px;
+    }
+
+    .left-box {
+        margin-left: 5px;
+    }
+
+    .profile h2 {
+        margin-top: 10px;
+    }
+    }
