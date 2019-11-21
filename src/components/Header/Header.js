@@ -43,7 +43,7 @@ class Header extends Component {
       <div className="Header">
         <div className="header-container">
           <div className="logo-container">
-            <h2>AutoCheck</h2>
+            <h2>AutoValue</h2>
             <i class="fas fa-check-double"></i>
           </div>
           <div className="button-container">

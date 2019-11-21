@@ -21,7 +21,7 @@ class Login extends Component {
       .post("/auth/register", { email, password })
       .then(res => {
         Swal.fire({
-          title: "Welcome to AutoCheck!",
+          title: "Welcome to AutoValue!",
           icon: "success"
         });
         this.props.updateUserInfo(res.data.user);
@@ -60,7 +60,7 @@ class Login extends Component {
       <div className="login-all">
         <div className="background"></div>
         <div className="big-logo">
-          <h1>AutoCheck<i class="fas fa-check-double"></i></h1>
+          <h1>AutoValue<i class="fas fa-check-double"></i></h1>
           
         </div>
         <div className="login">
