@@ -14,7 +14,7 @@ class Home extends Component {
         <div className="home">
           <div className="buttons">
             <Link to="/wizard1">
-              <button>Get Started</button>
+              <button className="get-started">Get Started</button>
             </Link>
           </div>
         </div>

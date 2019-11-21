@@ -1,3 +1,3 @@
 UPDATE users
-SET email = $1
-WHERE user_id = $2;
+SET email = $2
+WHERE user_id = $1;

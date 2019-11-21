@@ -28,6 +28,7 @@ app.get('/api/auth/me', ctrl.getUser)
 //endpoints
 app.post('/api/car', ctrl.getOne)
 app.put('/api/user/:user_id', ctrl.changeEmail)
+app.delete('/api/user/:user_id', ctrl.deleteUser)
 
 massive(CONNECTION_STRING).then(db => {
     console.log('Database Connected.')

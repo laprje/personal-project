@@ -77,9 +77,9 @@ module.exports = {
 
       changeEmail(req, res) {
         const db = req.app.get('db')
-        const {user_id, email} = req.params;
+        const {user_id} = req.params;
+        const {email} = req.body;
         
-
         db.edit_user([+user_id, email])
           .then(result => {
             res.status(200).send(result)
@@ -89,5 +89,16 @@ module.exports = {
             console.log(err)
           })
           req.session.user = { user_id, email }
+      },
+
+      deleteUser(req, res) {
+        const db = req.app.get('db')
+        const {user_id} = req.params;
+
+        db.delete_user(user_id)
+          .then(() => {
+            res.sendStatus(200)
+          })
+          .catch(err => console.log(err))
       }
     }

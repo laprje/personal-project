@@ -15,13 +15,13 @@ class Header extends Component {
     this.logout = this.logout.bind(this);
   }
 
-  componentDidMount(req, res) {
-    axios.get("/api/auth/me").then(user => {
-      this.setState({
-        user: user.data
-      });
-    });
-  }
+//   componentDidMount(req, res) {
+//     axios.get("/api/auth/me").then(user => {
+//       this.setState({
+//         user: user.data
+//       });
+//     });
+//   }
 
   logout = () => {
     axios.post("/auth/logout").then(res => {
@@ -37,12 +37,14 @@ class Header extends Component {
       });
     });
   };
+
   render() {
     return (
       <div className="Header">
         <div className="header-container">
           <div className="logo-container">
-            <h2>AutoValue</h2>
+            <h2>AutoCheck</h2>
+            <i class="fas fa-check-double"></i>
           </div>
           <div className="button-container">
             <Link to="/home">

@@ -21,7 +21,7 @@ class Login extends Component {
       .post("/auth/register", { email, password })
       .then(res => {
         Swal.fire({
-          title: "Welcome to AutoValue!",
+          title: "Welcome to AutoCheck!",
           icon: "success"
         });
         this.props.updateUserInfo(res.data.user);
@@ -57,32 +57,35 @@ class Login extends Component {
 
   render() {
     return (
-        <div className="login-all">
+      <div className="login-all">
         <div className="background"></div>
-        <h1>AutoCheck</h1>
-      <div className="login">
-        <div className="inputs">
-          <input
-            type="text"
-            value={this.state.email}
-            placeholder="Email"
-            onChange={e => this.handleChange("email", e.target.value)}
-          />
+        <div className="big-logo">
+          <h1>AutoCheck<i class="fas fa-check-double"></i></h1>
+          
+        </div>
+        <div className="login">
+          <div className="inputs">
+            <input
+              type="text"
+              value={this.state.email}
+              placeholder="Email"
+              onChange={e => this.handleChange("email", e.target.value)}
+            />
 
-          <input
-            value={this.state.password}
-            placeholder="Password"
-            type="password"
-            onChange={e => this.handleChange("password", e.target.value)}
-          />
+            <input
+              value={this.state.password}
+              placeholder="Password"
+              type="password"
+              onChange={e => this.handleChange("password", e.target.value)}
+            />
+          </div>
+          <br></br>
+
+          <div className="buttons">
+            <button onClick={this.register}>Register</button>
+            <button onClick={this.login}>Log In</button>
+          </div>
         </div>
-        <br></br>
-      
-        <div className="buttons">
-          <button onClick={this.register}>Register</button>
-          <button onClick={this.login}>Log In</button>
-        </div>
-      </div>
       </div>
     );
   }

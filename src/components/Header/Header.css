@@ -1,5 +1,5 @@
 .Header {
-    height: 90px;
+    height: 60px;
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -71,4 +71,16 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.logo-container i {
+    font-size: 20px;
+    color: #6AE2A0
 }
