@@ -4,7 +4,8 @@ const massive = require('massive')
 const session = require('express-session')
 const ctrl = require('./controller')
 const checkForSession = require('../server/middleware/checkForSession')
-const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
+const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT, STRIPE_SECRET} = process.env
+const stripeLoader = require('stripe')
 
 const app = express();
 
@@ -25,10 +26,35 @@ app.post('/auth/logout', ctrl.logout)
 app.get('/auth/getSession', ctrl.getSession)
 app.get('/api/auth/me', ctrl.getUser)
 
+
 //endpoints
 app.post('/api/car', ctrl.getOne)
 app.put('/api/user/:user_id', ctrl.changeEmail)
 app.delete('/api/user/:user_id', ctrl.deleteUser)
+
+//STRIPE ENDPOINTS
+const stripe = new stripeLoader(STRIPE_SECRET);
+
+const charge = (token, amt) => {
+    return stripe.charges.create({
+        amount: +(amt * 100),
+        currency: 'usd',
+        source: token,
+        description: "Statement Description"
+    })
+}
+
+app.post('/auth/payment', async (req, res, next) => {
+    console.log(req.body)
+    try {
+        let data = await charge(req.body.token.id, req.body.amount);
+        console.log(data);
+        res.send("Charged");
+    } catch(e) {
+        console.log(e)
+        res.status(500)
+    }
+})
 
 massive(CONNECTION_STRING).then(db => {
     console.log('Database Connected.')

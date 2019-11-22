@@ -4,11 +4,15 @@ import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import { updateUserInfo } from "../../ducks/reducer";
 import "./Login.css";
+import { StripeProvider, Elements } from "react-stripe-elements";
+import StripeForm from "./StripeForm";
 
 class Login extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    toggleRegister: false,
+    blurClass: "blurNo"
   };
 
   handleChange = (key, value) => {
@@ -55,37 +59,70 @@ class Login extends Component {
       });
   };
 
+  toggleRegister = () => {
+    this.setState({ toggleRegister: !this.state.toggleRegister });
+  };
+
+  toggleClassName = () => {
+    if (this.state.blurClass === "blurNo") {
+      this.setState({
+        blurClass: "blurYes"
+      });
+    } else {
+      this.setState({
+        blurClass: "blurNo"
+      });
+    }
+  };
+
+  registerButton = () => {
+    this.toggleRegister();
+    this.toggleClassName();
+  };
+
   render() {
     return (
-      <div className="login-all">
-        <div className="background"></div>
-        <div className="big-logo">
-          <h1>AutoValue<i class="fas fa-check-double"></i></h1>
-          
-        </div>
-        <div className="login">
-          <div className="inputs">
-            <input
-              type="text"
-              value={this.state.email}
-              placeholder="Email"
-              onChange={e => this.handleChange("email", e.target.value)}
-            />
-
-            <input
-              value={this.state.password}
-              placeholder="Password"
-              type="password"
-              onChange={e => this.handleChange("password", e.target.value)}
-            />
+      <div className={this.state.blurClass}>
+        <div className="login-all">
+          <div className="background"></div>
+          <div className="big-logo">
+            <h1>
+              AutoValue<i class="fas fa-check-double"></i>
+            </h1>
           </div>
-          <br></br>
+          <div className="login">
+            <div className="inputs">
+              <input
+                type="text"
+                value={this.state.email}
+                placeholder="Email"
+                onChange={e => this.handleChange("email", e.target.value)}
+              />
 
-          <div className="buttons">
-            <button onClick={this.register}>Register</button>
-            <button onClick={this.login}>Log In</button>
+              <input
+                value={this.state.password}
+                placeholder="Password"
+                type="password"
+                onChange={e => this.handleChange("password", e.target.value)}
+              />
+            </div>
+            <br></br>
+
+            <div className="buttons">
+              <button onClick={this.registerButton}>Register</button>
+              <button onClick={this.login}>Log In</button>
+            </div>
           </div>
         </div>
+        {this.state.toggleRegister ? (
+          <div className="stripe">
+            <StripeProvider apiKey="pk_test_bPnytOMZMGmHmoSiQPtIQu9J00YjPot9LC">
+              <Elements>
+                <StripeForm register={this.register} registerButton={this.registerButton}/>
+              </Elements>
+            </StripeProvider>
+          </div>
+        ) : null}
       </div>
     );
   }
