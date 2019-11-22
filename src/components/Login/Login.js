@@ -76,8 +76,27 @@ class Login extends Component {
   };
 
   registerButton = () => {
-    this.toggleRegister();
-    this.toggleClassName();
+    //try to get it so that when a user tries to register an email that already has an account
+    //that it will stop the process before getting to stripe.
+   
+      this.toggleRegister();
+      this.toggleClassName();
+    
+    // const {email} = this.state
+    // console.log('hit')
+    // axios.get("/api/user/:email", {email}).then(res => {
+    //   console.log(res)
+    //   if(res) {
+    //     Swal.fire({
+    //       title: `A user with that email already exists!`,
+    //       icon: "error"
+    //     });
+    //   } else {
+    //     this.toggleRegister();
+    //     this.toggleClassName();
+    //   }
+    // });
+    
   };
 
   render() {
@@ -118,7 +137,10 @@ class Login extends Component {
           <div className="stripe">
             <StripeProvider apiKey="pk_test_bPnytOMZMGmHmoSiQPtIQu9J00YjPot9LC">
               <Elements>
-                <StripeForm register={this.register} registerButton={this.registerButton}/>
+                <StripeForm
+                  register={this.register}
+                  registerButton={this.registerButton}
+                />
               </Elements>
             </StripeProvider>
           </div>

@@ -1,5 +1,5 @@
 .background {
-  background-image: url("../../assets/background.jpg");
+  background-image: url("/assets/background.jpg");
   height: 100vh;
   width: 100vw;
   background-size: auto 100vw;
@@ -141,7 +141,7 @@
 
 /* media queries */
 
-@media (max-width: 1670px) {
+@media (max-width: 1680px) {
     .login-all h1 {
       font-size: 70px;
     }
@@ -149,6 +149,12 @@
     .background {
       background-size: auto 100vh;
     }
+  }
+
+  @media (max-width: 1480px) {
+      .background{
+        background-size: cover;
+      }
   }
 
 @media (max-width: 830px) {

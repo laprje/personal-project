@@ -16,7 +16,7 @@
 
   overflow: hidden;
   color: ghostwhite;
-  background-image: url("../../assets/background.jpg");
+  background-image: url("/assets/background.jpg");
   background-size: auto 100vw;
 
   padding: none;
