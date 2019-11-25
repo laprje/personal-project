@@ -15,14 +15,6 @@ class Header extends Component {
     this.logout = this.logout.bind(this);
   }
 
-  //   componentDidMount(req, res) {
-  //     axios.get("/api/auth/me").then(user => {
-  //       this.setState({
-  //         user: user.data
-  //       });
-  //     });
-  //   }
-
   logout = () => {
     axios.post("/auth/logout").then(res => {
       // this.props.history.push("/");

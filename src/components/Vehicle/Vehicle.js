@@ -21,7 +21,7 @@ class Vehicle extends Component {
           {
             label: "Value ($USD)",
             data: [],
-            backgroundColor: ["rgb(106, 226, 160)"]
+            borderColor: ["rgb(106, 226, 160)"],
           }
         ]
       }
@@ -50,7 +50,9 @@ class Vehicle extends Component {
               {
               label: "Value ($USD)",
               data: res.data.map(el => el["value"].split('').filter((el) => arr.includes(el)).join('')),
-              backgroundColor: ["rgb(106, 226, 160)"]
+              borderColor: ["rgb(106, 226, 160)"],
+              fillColor: "rgb(106, 226, 160)",
+              fillOpacity: .3
             }
           ]
           }}),()=>console.log(this.state.data.datasets[0])
