@@ -1,0 +1,11 @@
+.car-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.car-info h3 {
+    margin-left: 2px;
+    margin-right: 2px;
+}

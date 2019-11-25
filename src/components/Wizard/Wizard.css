@@ -21,11 +21,20 @@
   align-items: flex-end;
 }
 
-.wizard .inputs input {
+.wizard .inputs select {
   height: 40px;
   width: 200px;
   margin-left: 10px;
   margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  background: ghostwhite;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 100px;
+}
+
+.wizard .inputs option {
+    font-family: 'Public Sans', sans-serif;
 }
 
 .wizard .wizard-header {
@@ -39,9 +48,9 @@
 
 /* media queries */
 
-@media (max-width: 1670px) {
+@media (max-width: 1680px) {
     .wizard {
-        background-size: auto 100vh;
+        background-size: cover;
     }
 }
 
