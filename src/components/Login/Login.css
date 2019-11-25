@@ -191,6 +191,11 @@
     transform: translate(-50%, -205%);
     margin-bottom: 0px;
   }
+
+  .form-container {
+      width: 280px;
+      height: 200px;
+  }
 }
 
 @media (max-width: 430px) {

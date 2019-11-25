@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
 import "./Login.css";
+import Swal from "sweetalert2";
 
 class StripeForm extends Component {
   constructor(props) {
@@ -21,17 +22,24 @@ class StripeForm extends Component {
       });
       console.log(token);
       let amount = this.state.amount;
-      await fetch("/auth/payment", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json"
-        },
-        body: JSON.stringify({ token, amount })
-      });
-      // redirect, clear inputs, thank alert, toast
       if (amount >= 8) {
+        await fetch("/auth/payment", {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json"
+            },
+            body: JSON.stringify({ token, amount })
+          });
         this.props.register();
+      } else {
+          Swal.fire({
+              title: "Insufficient Payment. $8 required to access.",
+              icon: 'error'
+          })
       }
+     
+      // redirect, clear inputs, thank alert, toast
+      
     } catch (e) {
       throw e;
     }

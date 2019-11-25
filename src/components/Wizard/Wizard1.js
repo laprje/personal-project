@@ -3,8 +3,16 @@ import Header from "../Header/Header";
 import { connect } from "react-redux";
 import { updateMake, updateModel, updateYear } from "../../ducks/reducer";
 import './Wizard.css'
+import axios from 'axios'
 
 class Wizard1 extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      makes: ''
+    }
+  }
 
   handleChange = (key, value) => {
     this.setState({ [key]: value });
@@ -12,13 +20,25 @@ class Wizard1 extends Component {
 
   render() {
     const { updateMake, updateModel, updateYear } = this.props;
+   
+    // axios.get('https://www.trueavm.com/trueavm/autoMakes.do?key=85ut2hrj7ps4u8xwhv64').then(res => {
+    //    this.setState({makes: res.data})
+    //    console.log(this.state.makes)
+    // })
+    
     return (
       <div className="wizard">
         <Header />
         <div className="container">
         <h2 className="wizard-header">Find Your Car</h2>
         <div className="inputs">
-          <input
+          {/* <select className="make" id="">
+            {}
+          </select>
+          <select className="model" id=""></select>
+          <select className="year" id=""></select> */}
+          {/* // inputs from before adding dropdown // */}
+           <input
             placeholder={
               this.props.make ? this.props.make : "Enter a Vehicle Make"
             }
@@ -39,6 +59,7 @@ class Wizard1 extends Component {
             type="text"
             onChange={e => updateYear(e.target.value)}
           />
+
         </div>
         <div className="buttons">
           <button
@@ -68,3 +89,9 @@ function mapStateToProps(reduxState) {
 }
 
 export default connect(mapStateToProps, { updateMake, updateModel, updateYear })(Wizard1);
+
+
+
+
+
+

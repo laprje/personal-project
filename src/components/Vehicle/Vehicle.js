@@ -30,7 +30,7 @@ class Vehicle extends Component {
   }
 
   render() {
-    ///you're almost there. You just need to get the values onto state and then display them.
+
 
     const { carOnDisplay } = this.state;
     return (
