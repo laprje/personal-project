@@ -4,7 +4,8 @@ const initialState = {
     savedCars: {},
     make: '',
     model: '',
-    year: ''
+    year: '',
+    loggedIn: false
 }
 
 //action constants
@@ -13,6 +14,7 @@ const UPDATE_USER_INFO = "UPDATE_USER_INFO";
 const UPDATE_MAKE = "UPDATE_MAKE";
 const UPDATE_MODEL = "UPDATE_MODEL";
 const UPDATE_YEAR = "UPDATE_YEAR";
+const UPDATE_LOGGED_IN = "UPDATE_LOGGED_IN"
 
 //action builders
 export function updateUserInfo(userObj) {
@@ -20,6 +22,13 @@ export function updateUserInfo(userObj) {
         type: UPDATE_USER_INFO,
         payload: userObj
     };
+}
+
+export function updateLoggedIn(loggedIn) {
+    return {
+        type: UPDATE_LOGGED_IN,
+        payload: loggedIn
+    }
 }
 
 export function updateMake(make) {
@@ -54,6 +63,8 @@ export default function reducer(state = initialState, action) {
         case UPDATE_MODEL:
             return {...state, ...action.payload};
         case UPDATE_YEAR:
+            return {...state, ...action.payload};
+        case UPDATE_LOGGED_IN:
             return {...state, ...action.payload};
         //add switch case for update cars
         default:

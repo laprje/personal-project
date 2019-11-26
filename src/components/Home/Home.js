@@ -2,8 +2,17 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import { updateLoggedIn } from '../../ducks/reducer'
+import { connect } from 'react-redux'
 
 class Home extends Component {
+ constructor(props) {
+  super(props)
+  this.state = {
+    loggedIn: props.loggedIn
+  }
+ }
+ 
   render() {
     return (
       <div className="all">
@@ -23,4 +32,10 @@ class Home extends Component {
   }
 }
 
-export default Home;
+function mapStateToProps(state) {
+  return {
+    loggedIn: state.loggedIn
+  };
+}
+
+export default connect(mapStateToProps, { updateLoggedIn })(Home);
