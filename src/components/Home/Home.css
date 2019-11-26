@@ -17,7 +17,8 @@
   overflow: hidden;
   color: ghostwhite;
   background-image: url("/assets/background.jpg");
-  background-size: auto 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   padding: none;
   margin: 0px;
@@ -53,14 +54,26 @@
 
 /* media queries */
 
+@media (max-width: 2000px) {
+    .home {
+        background-size: cover;
+    }
+}
+
 @media (max-width: 1670px) {
     .big-h1 h1 {
       font-size: 70px;
     }
   
     .home {
-      background-size: auto 100vh;
+        background-size: cover;
     }
+  }
+
+  @media (min-width: 1640px) {
+      .home {
+          background-size: cover;
+      }
   }
 
   @media (max-width: 1230px) {
@@ -69,7 +82,7 @@
     }
   
     .home {
-      background-size: auto 100vh;
+      background-size: cover;
     }
   }
 
@@ -79,7 +92,7 @@
     }
   
     .home {
-      background-size: auto 100vh;
+      background-size: cover;
     }
   }
 

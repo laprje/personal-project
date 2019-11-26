@@ -44,11 +44,9 @@
 
 .top-left-container button {
     margin: 10px 5px;
-    background: ghostwhite;
     border-radius: 5px;
     color: #30bced;
     border: none;
-    height: 25px;
     font-size: 15px;
     font-weight: 800;
 }
