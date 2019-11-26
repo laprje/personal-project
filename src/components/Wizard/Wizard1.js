@@ -118,7 +118,9 @@ class Wizard1 extends Component {
                 return <option value={el.value}>{el}</option>;
               })}
             </select>
+          </div>
 
+          
             {/* // inputs from before adding dropdown // */}
             {/* <input
             placeholder={
@@ -141,7 +143,6 @@ class Wizard1 extends Component {
             type="text"
             onChange={e => updateYear(e.target.value)}
           /> */}
-          </div>
           <div className="buttons">
             <button
               onClick={() => this.props.history.push("/home")}

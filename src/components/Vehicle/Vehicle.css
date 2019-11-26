@@ -19,6 +19,7 @@
     display: flex;
     margin-top: 10px;
     margin-bottom: 0px;
+    background: white;
 }
 
 .back-btn i {
@@ -64,9 +65,44 @@
     flex-direction: column;
     align-items: center;
     
-    height: 800px;
+    height: 600px;
     width: 1400px;
 }
+
+.vehicle .inputs {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .vehicle .inputs select {
+    height: 40px;
+    width: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    background: ghostwhite;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 100px;
+  }
+  
+  .vehicle .inputs option {
+      font-family: 'Public Sans', sans-serif;
+  }
+
+  .vehicle .next-button {
+    margin: 10px 5px;
+    background: ghostwhite;
+    border-radius: 5px;
+    color: #30bced;
+    border: none;
+    height: 25px;
+    font-size: 15px;
+    font-weight: 800;
+  }
 
 .back-btn:hover {
     display: inline-block;
