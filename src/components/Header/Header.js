@@ -37,18 +37,18 @@ class Header extends Component {
         <div className="header-container">
           <div className="logo-container">
             <h2>AutoValue</h2>
-            <i class="fas fa-check-double"></i>
+            <i className="fas fa-check-double"></i>
           </div>
           <div className="button-container">
             <Link to="/home">
               <button className="icon">
-                <i class="fas fa-home"></i>
+                <i className="fas fa-home"></i>
               </button>
             </Link>
             <Link to="/profile">
               <div className="profile-link">
                 <button className="icon">
-                  <i class="fas fa-user"></i>
+                  <i className="fas fa-user"></i>
                 </button>
                 {/* <div className="email">
                   {this.state.user.email && <h4>{this.state.user.email}</h4>}

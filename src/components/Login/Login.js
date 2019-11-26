@@ -106,7 +106,7 @@ class Login extends Component {
           <div className="background"></div>
           <div className="big-logo">
             <h1>
-              AutoValue<i class="fas fa-check-double"></i>
+              AutoValue<i className="fas fa-check-double"></i>
             </h1>
           </div>
           <div className="login">

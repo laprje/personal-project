@@ -7,8 +7,8 @@ import "./Vehicle.css";
 import { updateMake, updateModel, updateYear } from "../../ducks/reducer";
 
 class Vehicle extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       carOnDisplay: {
         make: "",
@@ -20,7 +20,7 @@ class Vehicle extends Component {
         labels: [],
         datasets: [
           {
-            label: "Value ($USD)",
+            label: `${this.props.year} ${this.props.make} Value ($USD)`,
             data: [],
             borderColor: ["rgb(106, 226, 160)"]
           }
