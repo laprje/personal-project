@@ -56,7 +56,6 @@ module.exports = {
   getUser(req, res) {
     if (req.session.user) {
       res.status(200).send(req.session.user);
-      console.log(req.session.user);
     }
   },
 
@@ -106,10 +105,15 @@ module.exports = {
     const db = req.app.get("db");
     const { email } = req.body;
     const found = await db.find_user([email]);
-    if (+found[0].count !== 0) {
-      return res.status(409).send({ message: "Email already registered" });
-    }
-      res.status(200);
-    }
-  
+    return found[0].count;
+  },
+
+  addCar (req, res) {
+    const db = req.app.get('db');
+    const { make, model, year, email } = req.body;
+    db.add_car([make, model, year, email])
+    .then(() => {
+      res.sendStatus(200)
+    })
+  }
 };

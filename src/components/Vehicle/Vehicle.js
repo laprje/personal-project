@@ -6,6 +6,7 @@ import { Line } from "react-chartjs-2";
 import "./Vehicle.css";
 import { updateMake, updateModel, updateYear } from "../../ducks/reducer";
 
+
 class Vehicle extends Component {
   constructor(props) {
     super(props);
@@ -16,20 +17,21 @@ class Vehicle extends Component {
         year: "",
         img: ""
       },
+      finishedSearch: false,
       data: {
         labels: [],
         datasets: [
           {
-            label: `${this.props.year} ${this.props.make} Value ($USD)`,
+            label: `${props.year} ${props.make} Value ($USD)`,
             data: [],
             borderColor: ["rgb(106, 226, 160)"]
           }
         ]
       },
       makes: [],
-      chosenMake: "",
+      chosenMake: props.make,
       models: [],
-      chosenModel: "",
+      chosenModel: props.model,
       years: [
         2020,
         2019,
@@ -63,7 +65,7 @@ class Vehicle extends Component {
         1991,
         1990
       ],
-      chosenYear: ""
+      chosenYear: props.year
     };
   }
 
@@ -127,16 +129,25 @@ class Vehicle extends Component {
   getModels() {
     axios
       .get(
-        `https://www.trueavm.com/trueavm/autoModels.do?make=${this.state.chosenMake}&key=85ut2hrj7ps4u8xwhv64`
+        `https://www.trueavm.com/trueavm/autoModels.do?make=${this.state.chosenMake ? this.state.chosenMake : this.props.make}&key=85ut2hrj7ps4u8xwhv64`
       )
       .then(res => {
         this.setState({ models: res.data });
       });
   }
 
+  addCar() {
+    const {make, model, year, email} = this.props;
+    axios
+      .post('/api/saved', {make, model, year, email})
+      .then(() => {
+        this.props.history.push('/profile')
+      })
+  }
+
 
   render() {
-    const { updateMake, updateModel, updateYear } = this.props;
+    // const { updateMake, updateModel, updateYear } = this.props;
     return (
       <div className="vehicle">
         <Header />
@@ -155,28 +166,32 @@ class Vehicle extends Component {
             {/* <img src={this.state.carOnDisplay[0].img} alt="" /> */}
           </div>
         ) : (
-          <p>Loading...</p>
+          null
         )}
         <div className="chart-container">
-          <div className="chart-row">
-            <Line
-              data={this.state.data}
-              options={{
-                maintainAspectRatio: false,
-                title: {
-                  display: true,
-                  text: `Your ${this.props.year} ${this.props.make} ${this.props.model}'s expected value over the next 5 years`
-                },
-                scales: {
-                  yAxes: [
-                    {
-                      ticks: { beginAtZero: true }
-                    }
-                  ]
+        {this.state.finishedSearch ? 
+        <div className="chart-row">
+        <Line
+          data={this.state.data}
+          options={{
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              text: `Your ${this.props.year} ${this.props.make} ${this.props.model}'s expected value over the next 5 years`
+            },
+            scales: {
+              yAxes: [
+                {
+                  ticks: { beginAtZero: true }
                 }
-              }}
-            />
-          </div>
+              ]
+            }
+          }}
+        />
+      </div>
+      : <p>Please Select your Car Below</p>
+      }
+          
         </div>
         <div className="search-row">
           <div className="inputs">
@@ -188,10 +203,10 @@ class Vehicle extends Component {
                 this.setState({ chosenMake: e.target.value }, () => {
                   this.getModels();
                 });
-                updateMake(e.target.value);
+                this.props.updateMake(e.target.value);
               }}
             >
-              <option>Select a Vehicle Make</option>
+              <option>{this.props.make}</option>
               {this.state.makes.map(el => {
                 return <option value={el.value}>{el}</option>;
               })}
@@ -199,12 +214,14 @@ class Vehicle extends Component {
             <select
               className="model"
               name="model"
+              value={this.state.chosenModel}
               onChange={e => {
-                this.setState({ chosenModel: e.target.value });
-                updateModel(e.target.value);
+                this.setState({ chosenModel: e.target.value }, () => {
+                });
+                this.props.updateModel(e.target.value);
               }}
             >
-              <option>Select a Model</option>
+              <option>{this.props.model}</option>
               {this.state.models.map(el => {
                 return <option value={el.value}>{el}</option>;
               })}
@@ -212,23 +229,31 @@ class Vehicle extends Component {
             <select
               className="year"
               name="year"
+              value={this.state.chosenYear}
               onChange={e => {
-                this.setState({ chosenYear: e.target.value });
-                updateYear(e.target.value);
+                this.setState({ chosenYear: e.target.value }, () => {
+                });
+                this.props.updateYear(e.target.value);
               }}
             >
-              <option>Select A Year</option>
+              <option>{this.props.year}</option>
               {this.state.years.map(el => {
                 return <option value={el.value}>{el}</option>;
               })}
             </select>
           </div>
           <button
-            onClick={() => this.getCar() }
+            onClick={() => {
+              this.setState({...this.state, finishedSearch: true})
+              this.props.history.push('/wizard1')
+              this.props.history.push('/vehicle')
+              this.getCar();
+             }}
             className="next-button"
           >
             Search
           </button>
+          <button className="save-button"onClick={() => {this.addCar()}}>Save This Car</button>
         </div>
       </div>
     );

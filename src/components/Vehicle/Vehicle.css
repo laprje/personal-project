@@ -22,6 +22,16 @@
     background: white;
 }
 
+.save-button {
+    border-radius: 5px;
+    color: #6ae2a0;
+    border: none;
+    font-size: 15px;
+    font-weight: 800;
+    background: ghostwhite;
+
+}
+
 .back-btn i {
     color: #30BCED;
     font-size: 50px;

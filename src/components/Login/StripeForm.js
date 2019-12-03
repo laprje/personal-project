@@ -20,7 +20,6 @@ class StripeForm extends Component {
       let { token } = await this.props.stripe.createToken({
         name: this.state.name
       });
-      console.log(token);
       let amount = this.state.amount;
       if (amount >= 8) {
         await fetch("/auth/payment", {

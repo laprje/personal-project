@@ -83,18 +83,18 @@ class Login extends Component {
       this.toggleClassName();
     
     // const {email} = this.state
-    // console.log('hit')
+    // console.log('hit', email)
     // axios.get("/api/user/:email", {email}).then(res => {
     //   console.log(res)
-    //   if(res) {
-    //     Swal.fire({
-    //       title: `A user with that email already exists!`,
-    //       icon: "error"
-    //     });
-    //   } else {
-    //     this.toggleRegister();
-    //     this.toggleClassName();
-    //   }
+      // if(res) {
+      //   Swal.fire({
+      //     title: `A user with that email already exists!`,
+      //     icon: "error"
+      //   });
+      // } else {
+      //   this.toggleRegister();
+      //   this.toggleClassName();
+      // }
     // });
     
   };

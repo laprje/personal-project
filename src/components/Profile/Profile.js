@@ -26,6 +26,7 @@ class Profile extends Component {
         user: user.data,
         email: user.data.email
       });
+      console.log(this.state.user)
     });
   }
 
@@ -137,6 +138,10 @@ class Profile extends Component {
                 Change Email
               </button>
             </div>
+          </div>
+          <div className="saved=box">
+            {//add thing here here here!!!!!!!!!!!!!!!!!
+            }
           </div>
           <button className="delete-btn" onClick={this.deleteAccount}> Delete Account </button>
         </div>

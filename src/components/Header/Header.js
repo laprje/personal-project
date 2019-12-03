@@ -40,6 +40,11 @@ class Header extends Component {
             <i className="fas fa-check-double"></i>
           </div>
           <div className="button-container">
+            <Link to="/vehicle">
+              <button className="icon">
+              <i class="fas fa-car"></i>
+              </button>
+            </Link>
             <Link to="/home">
               <button className="icon">
                 <i className="fas fa-home"></i>

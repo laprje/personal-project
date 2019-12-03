@@ -32,8 +32,9 @@ app.get('/api/user/:email', ctrl.findUser)
 app.post('/api/car', ctrl.getOne)
 app.put('/api/user/:user_id', ctrl.changeEmail)
 app.delete('/api/user/:user_id', ctrl.deleteUser)
+app.post('/api/saved', ctrl.addCar)
 
-//STRIPE ENDPOINTS
+//STRIPE STUFF
 const stripe = new stripeLoader(STRIPE_SECRET);
 
 const charge = (token, amt) => {
@@ -56,6 +57,8 @@ app.post('/auth/payment', async (req, res, next) => {
         res.status(500)
     }
 })
+
+//
 
 massive(CONNECTION_STRING).then(db => {
     console.log('Database Connected.')
