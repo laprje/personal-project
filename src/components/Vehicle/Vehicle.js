@@ -5,7 +5,7 @@ import axios from "axios";
 import { Line } from "react-chartjs-2";
 import "./Vehicle.css";
 import { updateMake, updateModel, updateYear } from "../../ducks/reducer";
-
+import Loading from '../Loading/Loading'
 
 class Vehicle extends Component {
   constructor(props) {
@@ -15,8 +15,10 @@ class Vehicle extends Component {
         make: "",
         model: "",
         year: "",
-        img: ""
+        img: "",
+        
       },
+      loading: true,
       finishedSearch: false,
       data: {
         labels: [],
@@ -116,6 +118,9 @@ class Vehicle extends Component {
   }
 
   componentDidMount() {
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, 1000);
     this.getCar();
     axios
       .get(
@@ -149,7 +154,17 @@ class Vehicle extends Component {
   render() {
     // const { updateMake, updateModel, updateYear } = this.props;
     return (
-      <div className="vehicle">
+      <>
+      {this.state.loading && (
+        <>
+        <Header></Header>
+        <div className="loading">
+          <Loading />
+        </div>
+        </>
+      )}
+      {!this.state.loading && (
+        <div className="vehicle">
         <Header />
         <div className="top-left-container">
           <button onClick={this.goBack} className="back-btn">
@@ -256,6 +271,8 @@ class Vehicle extends Component {
           <button className="save-button"onClick={() => {this.addCar()}}>Save This Car</button>
         </div>
       </div>
+      )}
+      </>
     );
   }
 }

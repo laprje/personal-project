@@ -5,7 +5,8 @@ import "./Profile.css";
 import { connect } from "react-redux";
 import { updateUserInfo } from "../../ducks/reducer";
 import Swal from "sweetalert2";
-import SavedVehicle from '../Vehicle/SavedVehicle'
+import SavedVehicle from "../Vehicle/SavedVehicle";
+import Loading from "../Loading/Loading";
 
 class Profile extends Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class Profile extends Component {
       editToggle: false,
       make: "",
       model: "",
-      year: ""
+      year: "",
+      loading: true
     };
     this.baseState = this.state;
     this.clearForm = this.clearForm.bind(this);
@@ -68,6 +70,9 @@ class Profile extends Component {
   }
 
   componentDidMount(req, res) {
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, 1000);
     axios.get("/api/auth/me").then(user => {
       this.setState({
         user: user.data,
@@ -164,55 +169,80 @@ class Profile extends Component {
   render() {
     return (
       <>
-        <Header />
-        <div className="profile">
-          <h2>Your Account</h2>
-          <div className="profile-box">
-            <div className="left-box">
-              <i className="profile-icon" class="fas fa-user"></i>
-            </div>
-            <div className="right-box">
-              <div className="email">
-                {this.state.email && <h4>Email Address: {this.state.email}</h4>}
-              </div>
-              {this.state.editToggle ? (
-                <div className="edit-input">
-                  <br />
-                  <form id="form">
-                    <input
-                      placeholder={this.state.email}
-                      onChange={e => this.handleChange("email", e.target.value)}
-                    />
-                  </form>
-                  {/* <button className="cancel-btn" onClick={this.clearForm()}>
+        {this.state.loading && (
+          <>
+          <Header></Header>
+          <div className="loading">
+            <Loading />
+          </div>
+          </>
+        )}
+        {!this.state.loading && (
+          <>
+            <Header />
+            <div className="profile">
+              <h2>Your Account</h2>
+              <div className="profile-box">
+                <div className="left-box">
+                  <i className="profile-icon" class="fas fa-user"></i>
+                </div>
+                <div className="right-box">
+                  <div className="email">
+                    {this.state.email && (
+                      <h4>Email Address: {this.state.email}</h4>
+                    )}
+                  </div>
+                  {this.state.editToggle ? (
+                    <div className="edit-input">
+                      <br />
+                      <form id="form">
+                        <input
+                          placeholder={this.state.email}
+                          onChange={e =>
+                            this.handleChange("email", e.target.value)
+                          }
+                        />
+                      </form>
+                      {/* <button className="cancel-btn" onClick={this.clearForm()}>
                     Cancel
                   </button> */}
-                  {/* <button className="save-btn" onClick={this.saveChanges()}>Save Changes</button> */}
+                      {/* <button className="save-btn" onClick={this.saveChanges()}>Save Changes</button> */}
+                    </div>
+                  ) : null}
+                  <button
+                    className="edit-btn"
+                    onClick={() => {
+                      this.toggleEdit();
+                    }}
+                  >
+                    Change Email
+                  </button>
                 </div>
-              ) : null}
-              <button
-                className="edit-btn"
-                onClick={() => {
-                  this.toggleEdit();
-                }}
-              >
-                Change Email
+              </div>
+              {this.state.make && this.state.model && this.state.year ? (
+                <div className="saved-box">
+                  <h4>Your Car</h4>
+                  <div className="mmy-box">
+                    <SavedVehicle
+                      savedMake={this.state.make}
+                      savedModel={this.state.model}
+                      savedYear={this.state.year}
+                    />
+                  </div>
+                </div>
+              ) : (
+                <p>
+                  You don't have a saved car yet! Go to the car search to save
+                  one!
+                </p>
+              )}
+              <button className="delete-btn" onClick={this.deleteAccount}>
+                {" "}
+                Delete Account{" "}
               </button>
             </div>
-          </div>
-          {this.state.make && this.state.model && this.state.year ? (
-            <div className="saved-box" >
-              <h4>Your Car</h4>
-              <div className="mmy-box">
-                <SavedVehicle savedMake={this.state.make} savedModel={this.state.model} savedYear={this.state.year} />
-              </div>
-            </div>
-          ) : <p>You don't have a saved car yet! Go to the car search to save one!</p>}
-          <button className="delete-btn" onClick={this.deleteAccount}>
-            {" "}
-            Delete Account{" "}
-          </button>
-        </div>
+          </>
+        )}
       </>
     );
   }

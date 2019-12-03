@@ -4,18 +4,35 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import { updateLoggedIn } from '../../ducks/reducer'
 import { connect } from 'react-redux'
+import Loading from '../Loading/Loading'
 
 class Home extends Component {
  constructor(props) {
   super(props)
   this.state = {
-    loggedIn: props.loggedIn
+    loggedIn: props.loggedIn,
+    loading: true
   }
+ }
+
+ componentDidMount() {
+  setTimeout(() => {
+    this.setState({ loading: false });
+  }, 1000);
  }
  
   render() {
     return (
-      <div className="all">
+      <>
+      {this.state.loading && (
+        <>
+        <Header></Header>
+        <div className="loading">
+          <Loading />
+        </div>
+        </>
+      )}
+      {!this.state.loading && (<div className="all">
         <Header className="home-header"/>
         <div className="big-h1">
           <h1>Find the value of any car, any time.</h1>
@@ -27,7 +44,8 @@ class Home extends Component {
             </Link>
           </div>
         </div>
-      </div>
+      </div>)}
+      </>
     );
   }
 }

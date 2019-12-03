@@ -119,30 +119,6 @@ class Wizard1 extends Component {
               })}
             </select>
           </div>
-
-          
-            {/* // inputs from before adding dropdown // */}
-            {/* <input
-            placeholder={
-              this.props.make ? this.props.make : "Enter a Vehicle Make"
-            }
-            type="text"
-            onChange={e => updateMake(e.target.value)}
-          />
-          <input
-            placeholder={
-              this.props.model ? this.props.model : "Enter a Vehicle Model"
-            }
-            type="text"
-            onChange={e => updateModel(e.target.value)}
-          />
-          <input
-            placeholder={
-              this.props.year ? this.props.year : "Enter a Vehicle Year"
-            }
-            type="text"
-            onChange={e => updateYear(e.target.value)}
-          /> */}
           <div className="buttons">
             <button
               onClick={() => this.props.history.push("/home")}

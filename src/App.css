@@ -25,4 +25,13 @@
   color: #09d3ac;
 }
 
+.loading {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #30bced;
+ }
+
 
