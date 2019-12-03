@@ -202,7 +202,7 @@ class Profile extends Component {
           </div>
           {this.state.make && this.state.model && this.state.year ? (
             <div className="saved-box" >
-              <h4>Your Saved Car</h4>
+              <h4>Your Car</h4>
               <div className="mmy-box">
                 <SavedVehicle savedMake={this.state.make} savedModel={this.state.model} savedYear={this.state.year} />
               </div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../Header/Header";
 import { connect } from "react-redux";
 import axios from "axios";
 import { Line } from "react-chartjs-2";

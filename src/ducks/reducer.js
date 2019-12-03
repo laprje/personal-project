@@ -1,7 +1,7 @@
 const initialState = {
     email: '',
     user_id: '',
-    savedCars: {},
+    savedCars: '',
     make: '',
     model: '',
     year: '',
@@ -10,7 +10,7 @@ const initialState = {
 
 //action constants
 const UPDATE_USER_INFO = "UPDATE_USER_INFO";
-// const UPDATE_LIST = "UPDATE_LIST";
+const UPDATE_SAVED = "UPDATE_SAVED";
 const UPDATE_MAKE = "UPDATE_MAKE";
 const UPDATE_MODEL = "UPDATE_MODEL";
 const UPDATE_YEAR = "UPDATE_YEAR";
@@ -52,6 +52,13 @@ export function updateYear(year) {
     }
 }
 
+export function updateSaved(car) {
+    return {
+        type: UPDATE_SAVED,
+        payload: {car}
+    }
+}
+
 //add function update cars list here!!!
 
 export default function reducer(state = initialState, action) {
@@ -66,7 +73,8 @@ export default function reducer(state = initialState, action) {
             return {...state, ...action.payload};
         case UPDATE_LOGGED_IN:
             return {...state, ...action.payload};
-        //add switch case for update cars
+        case UPDATE_SAVED:
+            return {...state, ...action.payload};
         default:
             return state;
     }
