@@ -80,7 +80,7 @@ class Vehicle extends Component {
         `https://www.trueavm.com/trueavm/autoValue.do?make=${make}&model=${model}&year=${year}&count=5&key=85ut2hrj7ps4u8xwhv64`
       )
       .then(res => {
-        let key = "data";
+        // let key = "data";
 
         const arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 

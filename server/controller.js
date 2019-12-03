@@ -115,5 +115,14 @@ module.exports = {
     .then(() => {
       res.sendStatus(200)
     })
+  },
+
+  getSavedCar (req, res) { 
+    const db = req.app.get('db');
+    const {email} = req.params;
+    db.get_saved_car([email])
+    .then(car => {
+      res.status(200).send(car)
+    })
   }
 };
