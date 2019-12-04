@@ -21,6 +21,8 @@ class Vehicle extends Component {
       loading: true,
       secondCar: false,
       finishedSearch: false,
+      dataLength: 1,
+      colors: ["rgb(106, 226, 160)", "rgb(48, 188, 237)", "rgb(0, 0, 0)", "rgb(224, 58, 58)", "rgb(255, 184, 54)", "rgb(144, 105, 194)"],
       data: {
         labels: [],
         datasets: [
@@ -140,12 +142,13 @@ class Vehicle extends Component {
               .filter(el => arr.includes(el))
               .join("")
           ),
-          borderColor: ["rgb(48, 188, 237)"],
+          borderColor: [this.state.colors[this.state.dataLength]],
           fillColor: "rgb(48, 188, 237)",
           fillOpacity: 0.3
         };
 
         this.state.data.datasets.push(newData);
+        this.state.dataLength += 1;
 
         // this.setState(prevState => ({
         //   data: {
