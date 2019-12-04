@@ -180,6 +180,7 @@ class Vehicle extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props);
     setTimeout(() => {
       this.setState({ loading: false });
     }, 800);
@@ -243,20 +244,29 @@ class Vehicle extends Component {
 
               <div className="hidden-text">Back to Search Page</div>
             </div>
-            {this.state.chosenMake && this.state.chosenModel && this.state.chosenYear ? (
+            {this.state.chosenMake &&
+            this.state.chosenModel &&
+            this.state.chosenYear ? (
               <div className="car-info">
                 <h3>{this.state.chosenYear}</h3>
                 <h3>{this.state.chosenMake}</h3>
                 <h3>{this.state.chosenModel}</h3>
               </div>
             ) : null}
-            {this.state.secondMake && this.state.chosenModel && this.state.chosenYear && this.state.secondCar ? (
-              <div className="car-info">
-              <h3>{this.state.secondYear}</h3>
-              <h3>{this.state.secondMake}</h3>
-              <h3>{this.state.secondModel}</h3>
-            </div>
-            ): null}
+            {this.state.secondMake &&
+            this.state.chosenModel &&
+            this.state.chosenYear &&
+            this.state.secondCar ? (
+              <>
+              <div></div>
+              <h3>&</h3>
+                <div className="car-info">
+                  <h3>{this.state.secondYear}</h3>
+                  <h3>{this.state.secondMake}</h3>
+                  <h3>{this.state.secondModel}</h3>
+                </div>
+              </>
+            ) : null}
             <div className="chart-container">
               {this.state.finishedSearch ? (
                 <div className="chart-row">
@@ -400,7 +410,7 @@ class Vehicle extends Component {
                     className="next-button"
                     onClick={() => {
                       this.setState({ secondCar: false });
-                      this.state.data.datasets.length = 1
+                      this.state.data.datasets.length = 1;
                     }}
                   >
                     Cancel
@@ -452,7 +462,7 @@ function mapStateToProps(reduxState) {
     make,
     model,
     year,
-    secondMake, 
+    secondMake,
     secondModel,
     secondYear
   };
