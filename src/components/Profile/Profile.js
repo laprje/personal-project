@@ -69,7 +69,14 @@ class Profile extends Component {
       });
   }
 
+  componentWillMount() {
+    if(!this.props.email && !this.props.user_id) {
+      this.props.history.push('/')
+    }
+  }
+
   componentDidMount(req, res) {
+    
     setTimeout(() => {
       this.setState({ loading: false });
     }, 800);
@@ -245,7 +252,10 @@ class Profile extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  return reduxState;
+  const {email, user_id} = reduxState;
+  return {
+    email, user_id
+  };
 }
 
 export default connect(mapStateToProps, { updateUserInfo })(Profile);

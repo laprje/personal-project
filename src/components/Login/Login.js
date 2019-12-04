@@ -28,6 +28,8 @@ class Login extends Component {
           title: "Welcome to AutoValue!",
           icon: "success"
         });
+        axios 
+          .post('')
         this.props.updateUserInfo(res.data.user);
         this.props.history.push("/home");
       })

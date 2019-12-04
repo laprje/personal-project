@@ -5,6 +5,7 @@ import axios from "axios";
 import { Line } from "react-chartjs-2";
 import "./Vehicle.css";
 import {
+  updateUserInfo,
   updateMake,
   updateModel,
   updateYear,
@@ -179,11 +180,15 @@ class Vehicle extends Component {
           }
         }));
       });
-    console.log(this.state);
+  }
+
+  componentWillMount() {
+    if(!this.props.email && !this.props.user_id) {
+      this.props.history.push('/')
+    }
   }
 
   componentDidMount() {
-    console.log(this.props);
     setTimeout(() => {
       this.setState({ loading: false });
     }, 800);
@@ -414,6 +419,7 @@ class Vehicle extends Component {
                     onClick={() => {
                       this.setState({ secondCar: false });
                       this.state.data.datasets.length = 1;
+                      this.state.dataLength = 1;
                     }}
                   >
                     Cancel
@@ -460,8 +466,10 @@ class Vehicle extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { make, model, year, secondMake, secondModel, secondYear } = reduxState;
+  const { email, user_id, make, model, year, secondMake, secondModel, secondYear } = reduxState;
   return {
+    email,
+    user_id,
     make,
     model,
     year,
@@ -472,6 +480,7 @@ function mapStateToProps(reduxState) {
 }
 
 export default connect(mapStateToProps, {
+  updateUserInfo,
   updateMake,
   updateModel,
   updateYear,

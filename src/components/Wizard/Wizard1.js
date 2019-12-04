@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import { connect } from "react-redux";
-import { updateMake, updateModel, updateYear } from "../../ducks/reducer";
+import { updateMake, updateModel, updateYear, updateUserInfo } from "../../ducks/reducer";
 import "./Wizard.css";
 import axios from "axios";
 
@@ -49,6 +49,12 @@ class Wizard1 extends Component {
       chosenYear: ""
     };
     this.getModels = this.getModels.bind(this);
+  }
+
+  componentWillMount() {
+    if(!this.props.email && !this.props.user_id) {
+      this.props.history.push('/')
+    }
   }
 
   componentDidMount() {
@@ -140,16 +146,19 @@ class Wizard1 extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { make, model, year } = reduxState;
+  const { make, model, year, email, user_id } = reduxState;
   return {
     make,
     model,
-    year
+    year,
+    email, 
+    user_id
   };
 }
 
 export default connect(mapStateToProps, {
   updateMake,
   updateModel,
-  updateYear
+  updateYear,
+  updateUserInfo
 })(Wizard1);

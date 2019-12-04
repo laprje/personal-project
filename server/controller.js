@@ -45,6 +45,12 @@ module.exports = {
   logout: (req, res) => {
     req.session.destroy();
     res.status(200).send({ Message: "Logged Out." });
+    // const db = req.app.get('db')
+    // const {user_id} = req.body;
+    // db.delete_active_user([user_id])
+    // .then(res => {
+    //   res.sendStatus(200)
+    // })
   },
 
   getSession: (req, res) => {

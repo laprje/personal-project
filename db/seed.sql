@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users_hash;
 drop TABLE IF EXISTS users;
+DROP TABLE IF EXISTS active_users;
 
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
@@ -14,3 +15,9 @@ CREATE TABLE users_hash (
     hash TEXT,
     user_id INT REFERENCES users(user_id)
 );
+
+CREATE TABLE active_users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR,
+    user_id INT REFERENCES users(user_id)
+)
