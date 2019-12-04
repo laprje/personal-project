@@ -72,7 +72,7 @@ class Profile extends Component {
   componentDidMount(req, res) {
     setTimeout(() => {
       this.setState({ loading: false });
-    }, 1000);
+    }, 800);
     axios.get("/api/auth/me").then(user => {
       this.setState({
         user: user.data,
@@ -203,10 +203,6 @@ class Profile extends Component {
                           }
                         />
                       </form>
-                      {/* <button className="cancel-btn" onClick={this.clearForm()}>
-                    Cancel
-                  </button> */}
-                      {/* <button className="save-btn" onClick={this.saveChanges()}>Save Changes</button> */}
                     </div>
                   ) : null}
                   <button

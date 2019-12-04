@@ -18,7 +18,7 @@ class Home extends Component {
  componentDidMount() {
   setTimeout(() => {
     this.setState({ loading: false });
-  }, 1000);
+  }, 800);
  }
  
   render() {
@@ -32,7 +32,7 @@ class Home extends Component {
         </div>
         </>
       )}
-      {!this.state.loading && (<div className="all">
+      <div className="all">
         <Header className="home-header"/>
         <div className="big-h1">
           <h1>Find the value of any car, any time.</h1>
@@ -44,7 +44,7 @@ class Home extends Component {
             </Link>
           </div>
         </div>
-      </div>)}
+      </div>
       </>
     );
   }

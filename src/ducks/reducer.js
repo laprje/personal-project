@@ -3,8 +3,11 @@ const initialState = {
     user_id: '',
     savedCars: '',
     make: '',
+    secondMake: '',
     model: '',
+    secondModel: '',
     year: '',
+    secondYear: '',
     loggedIn: false
 }
 
@@ -12,8 +15,11 @@ const initialState = {
 const UPDATE_USER_INFO = "UPDATE_USER_INFO";
 const UPDATE_SAVED = "UPDATE_SAVED";
 const UPDATE_MAKE = "UPDATE_MAKE";
+const UPDATE_SECOND_MAKE = "UPDATE_SECOND_MAKE"
 const UPDATE_MODEL = "UPDATE_MODEL";
+const UPDATE_SECOND_MODEL = "UPDATE_SECOND_MODEL"
 const UPDATE_YEAR = "UPDATE_YEAR";
+const UPDATE_SECOND_YEAR = "UPDATE_SECOND_YEAR"
 const UPDATE_LOGGED_IN = "UPDATE_LOGGED_IN"
 
 //action builders
@@ -38,9 +44,23 @@ export function updateMake(make) {
     }
 }
 
+export function updateSecondMake(make) {
+    return {
+        type: UPDATE_SECOND_MAKE,
+        payload: {make}
+    }
+}
+
 export function updateModel(model) {
     return {
         type: UPDATE_MODEL,
+        payload: {model}
+    }
+}
+
+export function updateSecondModel(model) {
+    return {
+        type: UPDATE_SECOND_MODEL,
         payload: {model}
     }
 }
@@ -51,6 +71,14 @@ export function updateYear(year) {
         payload: {year}
     }
 }
+
+export function updateSecondYear(year) {
+    return {
+        type: UPDATE_SECOND_YEAR,
+        payload: {year}
+    }
+}
+
 
 export function updateSaved(car) {
     return {
@@ -74,6 +102,12 @@ export default function reducer(state = initialState, action) {
         case UPDATE_LOGGED_IN:
             return {...state, ...action.payload};
         case UPDATE_SAVED:
+            return {...state, ...action.payload};
+        case UPDATE_SECOND_MAKE:
+            return {...state, ...action.payload};
+        case UPDATE_SECOND_MODEL:
+            return {...state, ...action.payload};
+        case UPDATE_SECOND_YEAR:
             return {...state, ...action.payload};
         default:
             return state;
