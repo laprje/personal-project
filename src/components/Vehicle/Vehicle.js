@@ -35,6 +35,8 @@ class Vehicle extends Component {
         ]
       },
       makes: [],
+      chosenCount: 5,
+      displayYears: [1,2,3,4,5,6,7,8,9,10],
       chosenMake: props.make,
       secondMake: "",
       models: [],
@@ -86,9 +88,10 @@ class Vehicle extends Component {
   //get first car //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   getCar() {
     const { make, model, year } = this.props;
+    const {chosenCount} = this.state
     axios
       .get(
-        `https://www.trueavm.com/trueavm/autoValue.do?make=${make}&model=${model}&year=${year}&count=5&key=85ut2hrj7ps4u8xwhv64`
+        `https://www.trueavm.com/trueavm/autoValue.do?make=${make}&model=${model}&year=${year}&count=${chosenCount}&key=85ut2hrj7ps4u8xwhv64`
       )
       .then(res => {
         const arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
@@ -122,15 +125,15 @@ class Vehicle extends Component {
           }
         }));
       });
-    console.log(this.state);
   }
 
   //get second car ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   getSecondCar() {
     const { secondMake, secondModel, secondYear } = this.state;
+    const { chosenCount } = this.state
     axios
       .get(
-        `https://www.trueavm.com/trueavm/autoValue.do?make=${secondMake}&model=${secondModel}&year=${secondYear}&count=5&key=85ut2hrj7ps4u8xwhv64`
+        `https://www.trueavm.com/trueavm/autoValue.do?make=${secondMake}&model=${secondModel}&year=${secondYear}&count=${chosenCount}&key=85ut2hrj7ps4u8xwhv64`
       )
       .then(res => {
         const arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
@@ -231,6 +234,23 @@ class Vehicle extends Component {
     });
   }
 
+  changeCount() {
+    this.setState({data: {
+      labels: [],
+      datasets: [
+        {
+          label: `Value ($USD)`,
+          data: [],
+          borderColor: ["rgb(106, 226, 160)"]
+        }
+      ]
+    }, dataLength: this.state.dataLength-1}, () => {
+      console.log(this.state.data)
+      this.getCar();
+      this.getSecondCar();
+    })
+  }
+
   render() {
     return (
       <>
@@ -305,6 +325,23 @@ class Vehicle extends Component {
             }
             <div className="search-row">
               <div className="inputs">
+                <h3>Select your car</h3>
+              <select
+                  className="count"
+                  name="count"
+                  value={this.state.count}
+                  onChange={e => {
+                    this.setState({ chosenCount: e.target.value }, () => {
+                      this.changeCount()
+                    });
+                    // this.props.updateCount(e.target.value);    you may need to make a redux function to store state.
+                  }}
+                >
+                  <option>Number of Years to Display</option>
+                  {this.state.displayYears.map(el => {
+                    return <option value={el.value}>{el}</option>;
+                  })}
+                </select>
                 <select
                   className="make"
                   name="make"
@@ -434,6 +471,7 @@ class Vehicle extends Component {
                   this.getCar();
                 }}
                 className="next-button"
+                hidden={this.state.secondCar}
               >
                 Search
               </button>

@@ -85,18 +85,16 @@ class Profile extends Component {
         user: user.data,
         email: user.data.email
       });
-      console.log(this.state.user);
     });
     if (this.state.email) {
       axios.get(`/api/cars/${this.props.email}`).then(res => {
-        if (res) {
+        if (res.data[0].cars) {
           let car = JSON.parse(res.data[0].cars);
           this.setState({
             make: car.make,
             model: car.model,
             year: car.year
           });
-          console.log(this.state);
         }
       });
       this.getCar();
