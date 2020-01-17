@@ -261,15 +261,15 @@ class Vehicle extends Component {
           borderColor: ["rgb(106, 226, 160)"]
         }
       ]
-    }, dataLength: this.state.dataLength-1}, () => {
-      
+    }, dataLength: this.state.dataLength = 1 ? this.state.dataLength : this.state.dataLength-1}, () => {
+
     })
-    this.getCar();
-    if(this.state.secondCar) {
-      this.getSecondCarWithProps();
-    }
-    console.log(this.state.data)
-    console.log(this.state.chosenCount)
+    await this.getCar();
+      if(this.state.secondCar) {
+        await this.getSecondCar();
+      }
+    // console.log(this.state.data)
+    // console.log(this.state.chosenCount)
   }
 
   render() {
@@ -320,12 +320,13 @@ class Vehicle extends Component {
               {this.state.finishedSearch ? (
                 <div className="chart-row">
                   <Line
+                    id="line"
                     data={this.state.data}
                     options={{
                       maintainAspectRatio: false,
                       title: {
                         display: true,
-                        text: `Expected value over the next 5 years`
+                        text: `Expected value over the next ${this.state.chosenCount} years`
                       },
                       scales: {
                         yAxes: [
@@ -354,6 +355,7 @@ class Vehicle extends Component {
                   onChange={e => {
                     this.setState({ chosenCount: e.target.value }, () => {
                       this.changeCount()
+                      console.log(this.state)
                     });
                     // this.props.updateCount(e.target.value);    you may need to make a redux function to store state.
                   }}
