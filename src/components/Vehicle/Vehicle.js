@@ -36,7 +36,7 @@ class Vehicle extends Component {
       },
       makes: [],
       chosenCount: 5,
-      displayYears: [1,2,3,4,5,6,7,8,9,10],
+      displayYears: [3,4,5,6,7,8,9,10],
       chosenMake: props.make,
       secondMake: "",
       models: [],
@@ -154,25 +154,42 @@ class Vehicle extends Component {
         this.state.data.datasets.push(newData);
         this.state.dataLength += 1;
 
-        // this.setState(prevState => ({
-        //   data: {
-        //     ...prevState.data,
-        //     datasets: [...prevState.data.datasets,
-        //       {
-        //         label: "Value ($USD)",
-        //         data: res.data.map(el =>
-        //           el["value"]
-        //             .split("")
-        //             .filter(el => arr.includes(el))
-        //             .join("")
-        //         ),
-        //         borderColor: ["rgb(48, 188, 237)"],
-        //         fillColor: "rgb(48, 188, 237)",
-        //         fillOpacity: 0.3
-        //       }
-        //     ]
-        //   }
-        // }));
+        this.setState(prevState => ({
+          data: {
+            ...prevState.data,
+            labels: res.data.map(el => {
+              return el.date;
+            })
+          }
+        }));
+      });
+  }
+
+  getSecondCarWithProps() {
+    const { secondMake, secondModel, secondYear } = this.props;
+    const { chosenCount } = this.state
+    axios
+      .get(
+        `https://www.trueavm.com/trueavm/autoValue.do?make=${secondMake}&model=${secondModel}&year=${secondYear}&count=${chosenCount}&key=85ut2hrj7ps4u8xwhv64`
+      )
+      .then(res => {
+        const arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+
+        const newData = {
+          label: `${this.state.secondMake} ${this.state.secondModel} Value ($USD)`,
+          data: res.data.map(el =>
+            el["value"]
+              .split("")
+              .filter(el => arr.includes(el))
+              .join("")
+          ),
+          borderColor: [this.state.colors[this.state.dataLength]],
+          fillColor: "rgb(48, 188, 237)",
+          fillOpacity: 0.3
+        };
+
+        this.state.data.datasets.push(newData);
+        this.state.dataLength += 1;
 
         this.setState(prevState => ({
           data: {
@@ -234,8 +251,8 @@ class Vehicle extends Component {
     });
   }
 
-  changeCount() {
-    this.setState({data: {
+  changeCount = async() => {
+    await this.setState({data: {
       labels: [],
       datasets: [
         {
@@ -245,10 +262,14 @@ class Vehicle extends Component {
         }
       ]
     }, dataLength: this.state.dataLength-1}, () => {
-      console.log(this.state.data)
-      this.getCar();
-      this.getSecondCar();
+      
     })
+    this.getCar();
+    if(this.state.secondCar) {
+      this.getSecondCarWithProps();
+    }
+    console.log(this.state.data)
+    console.log(this.state.chosenCount)
   }
 
   render() {
