@@ -5,8 +5,8 @@ import "./Release.css";
 import { connect } from "react-redux";
 import { updateUserInfo } from "../../ducks/reducer";
 import Swal from "sweetalert2";
-import SavedVehicle from "../Vehicle/SavedVehicle";
 import Loading from "../Loading/Loading";
+import { default as Card } from "../ReleaseCard/ReleaseCard";
 
 export default class Release extends Component {
   constructor() {
@@ -16,7 +16,7 @@ export default class Release extends Component {
     };
   }
 
-  /* use this to log out if user does not exist. Commented out for development */
+  /* use this for force log out if user does not exist. Commented out for development */
 
   // componentWillMount() {
   //     if(!this.props.email && !this.props.user_id) {
@@ -33,7 +33,7 @@ export default class Release extends Component {
   render() {
     return (
       <>
-      <Header></Header>
+        <Header></Header>
         {this.state.loading && (
           <>
             <div className="loading">
@@ -41,9 +41,22 @@ export default class Release extends Component {
             </div>
           </>
         )}
+        {/* RENDER AFTER LOADING ANIMATION */}
         {!this.state.loading && (
           <>
-            <div className="release"></div>
+            <h1>
+              Welcome to Releases!<br></br>(Beta)
+            </h1>
+            <div className="release">
+              <div className="card-container">
+                <Card></Card>
+                <Card></Card>
+                <Card></Card>
+                <Card></Card>
+                <Card></Card>
+                <Card></Card>
+              </div>
+            </div>
           </>
         )}
       </>

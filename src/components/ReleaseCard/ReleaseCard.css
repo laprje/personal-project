@@ -1,0 +1,7 @@
+.release-card {
+    background: rgb(214, 214, 214);
+    height: 25vh;
+    width: 60vw;
+    border-radius: 18px;
+    margin: 15px;
+}
