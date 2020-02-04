@@ -21,3 +21,13 @@ CREATE TABLE active_users (
     email VARCHAR,
     user_id INT REFERENCES users(user_id)
 )
+
+CREATE TABLE cars (
+    make VARCHAR(20),
+    model VARCHAR(20),
+    release_date VARCHAR(40),
+    price NUMERIC,
+    drive_type VARCHAR(10),
+    engine VARCHAR(20),
+    body_type VARCHAR(20)
+)
