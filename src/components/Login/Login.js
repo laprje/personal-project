@@ -112,6 +112,7 @@ class Login extends Component {
             </h1>
           </div>
           <div className="login">
+            <h5>To test existing user: email: user  password: user. <br></br> To test stripe register function, type username and password and hit register.</h5>
             <div className="inputs">
               <input
                 type="text"
