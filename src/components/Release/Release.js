@@ -33,9 +33,9 @@ export default class Release extends Component {
   render() {
     return (
       <>
+      <Header></Header>
         {this.state.loading && (
           <>
-            <Header></Header>
             <div className="loading">
               <Loading />
             </div>
@@ -43,7 +43,6 @@ export default class Release extends Component {
         )}
         {!this.state.loading && (
           <>
-          <Header></Header>
             <div className="release"></div>
           </>
         )}
