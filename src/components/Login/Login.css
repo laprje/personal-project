@@ -22,33 +22,39 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -10%);
-  background-color: #e6e8e6;
+  /* background-color: #e6e8e6; */
   width: 400px;
-  height: 250px;
+  height: 320px;
   border-radius: 10px;
   opacity: .88;
+}
+
+.login h5 {
+  color: #a5cfdf;
 }
 
 .login .inputs {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -90%);
+  transform: translate(-50%, -70%);
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .inputs input {
-  margin: 5px 0;
+  margin: 10px 0;
   border: none;
   height: 20px;
   border-radius: 3px;
+  color: white;
 }
 
 .login .buttons {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 40%);
   margin-top: 50px;
 }
 
@@ -154,6 +160,10 @@
   height: 25px;
   font-size: 15px;
   font-weight: 800;
+}
+
+Input .material-icon {
+  color: black;
 }
 
 /* media queries */

@@ -7,6 +7,53 @@ import "./Login.css";
 import { StripeProvider, Elements } from "react-stripe-elements";
 import StripeForm from "./StripeForm";
 
+import {TextField} from "@material-ui/core";
+import {
+  fade,
+  ThemeProvider,
+  withStyles,
+  makeStyles,
+  createMuiTheme,
+} from '@material-ui/core/styles';
+import {lightBlue} from '@material-ui/core/colors'
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#30bced'
+    },
+    secondary: {
+      main: '#6ae2a0',
+    },
+  },
+});
+
+const blue=lightBlue[300]
+
+
+const CssTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: blue,
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: blue,
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'red',
+      },
+      '&:hover fieldset': {
+        borderColor: 'yellow',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: blue,
+      },
+    },
+  },
+})(TextField);
+
 class Login extends Component {
   state = {
     email: "",
@@ -110,11 +157,36 @@ class Login extends Component {
             <h1>
               AutoValue<i className="fas fa-check-double"></i>
             </h1>
+            
           </div>
+          
           <div className="login">
-            <h5>To test existing user: email: user  password: user. <br></br> To test stripe register function, type username and password and hit register.</h5>
+          <h5>To test existing user: email: user  password: user. <br></br> To test stripe register function, type username and password and hit register.</h5>
             <div className="inputs">
-              <input
+              {//material ui core component
+              }
+            <CssTextField
+                label="Email / Username"
+                // id="standard-basic"
+                formControlProps={{
+                    fullWidth: true
+                }}
+                type="text"
+                value={this.state.email}
+                onChange={e => this.handleChange("email", e.target.value)}
+                color="white"
+            />
+            <CssTextField
+            label="Password"
+            id="standard-basic"
+            formControlProps={{
+                fullWidth: true
+            }}
+            type="text"
+            value={this.state.password}
+            onChange={e => this.handleChange("password", e.target.value)}
+            />
+              {/* <input
                 type="text"
                 value={this.state.email}
                 placeholder="Email"
@@ -126,7 +198,7 @@ class Login extends Component {
                 placeholder="Password"
                 type="password"
                 onChange={e => this.handleChange("password", e.target.value)}
-              />
+              /> */}
             </div>
             <br></br>
 
