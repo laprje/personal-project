@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./ReleaseCard.css";
-import Swal from "sweetalert2";
 
 export default function ReleaseCard(props) {
   return (
@@ -23,7 +22,7 @@ export default function ReleaseCard(props) {
                 
             </div>
         </div>
-        <button className="expand"><i class="fas fa-chevron-right"></i></button>
+        <button className="expand"><i className="fas fa-chevron-right"></i></button>
       </div>
     </div>
   );

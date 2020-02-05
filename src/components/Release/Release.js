@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import axios from "axios";
 import "./Release.css";
-import { connect } from "react-redux";
-import { updateUserInfo } from "../../ducks/reducer";
-import Swal from "sweetalert2";
 import Loading from "../Loading/Loading";
 import { default as Card } from "../ReleaseCard/ReleaseCard";
 

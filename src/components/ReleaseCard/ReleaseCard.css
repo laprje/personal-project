@@ -1,8 +1,8 @@
 .release-card {
     background: transparent;
-    height: 25vh;
-    width: 40vw;
-    border-radius: 18px;
+    height: 230px;
+    width: 600px;
+    border-radius: 4px;
     margin: 15px;
     display: flex;
     flex-direction: row;
@@ -40,10 +40,16 @@
     align-items: center;
 }
 
+.img-container {
+    display: flex;
+    
+}
+
 .img-container img {
     height: 23vh;
     width: auto;
     border-radius: 12px;
+    align-self: center;
 }
 
 .release-card .right-box {
