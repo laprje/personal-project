@@ -8,13 +8,8 @@ import { StripeProvider, Elements } from "react-stripe-elements";
 import StripeForm from "./StripeForm";
 
 import {TextField} from "@material-ui/core";
-import InputBase from '@material-ui/core/InputBase';
-import Input from '@material-ui/core/Input';
 import {Button} from '@material-ui/core'
-import {
-  withStyles,
-  createMuiTheme,
-} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {lightBlue} from '@material-ui/core/colors'
 import {blueGrey} from '@material-ui/core/colors'
 
