@@ -13,7 +13,7 @@
 }
 
 .release-card:hover {
-    background: rgb(221, 221, 221);
+    background: rgb(224, 99, 99);
 }
 
 .release-card:hover > .card-info > .expand {

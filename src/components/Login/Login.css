@@ -22,15 +22,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -10%);
-  /* background-color: #e6e8e6; */
+  background-color: #e6e8e6;
   width: 400px;
   height: 320px;
   border-radius: 10px;
   opacity: .88;
+  
 }
 
 .login h5 {
-  color: #a5cfdf;
+  color: #3f5761;
 }
 
 .login .inputs {
@@ -39,16 +40,18 @@
   left: 50%;
   transform: translate(-50%, -70%);
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .inputs input {
-  margin: 10px 0;
+  /* margin: 10px 0; */
   border: none;
   height: 20px;
   border-radius: 3px;
-  color: white;
+  
+  
 }
+
 
 .login .buttons {
   position: fixed;

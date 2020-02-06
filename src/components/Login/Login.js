@@ -8,6 +8,9 @@ import { StripeProvider, Elements } from "react-stripe-elements";
 import StripeForm from "./StripeForm";
 
 import {TextField} from "@material-ui/core";
+import InputBase from '@material-ui/core/InputBase';
+import Input from '@material-ui/core/Input';
+import {Button} from '@material-ui/core'
 import {
   fade,
   ThemeProvider,
@@ -16,6 +19,67 @@ import {
   createMuiTheme,
 } from '@material-ui/core/styles';
 import {lightBlue} from '@material-ui/core/colors'
+import {grey} from '@material-ui/core/colors'
+
+// const styles = theme => ({
+//   root: {
+//     display: "flex",
+//     flexWrap: "wrap",
+//     backgroundColor: "#333" // for illustrative purposes
+//   },
+//   formControl: {
+//     margin: theme.spacing.unit,
+//     minWidth: 120
+//   },
+//   selectEmpty: {
+//     marginTop: theme.spacing.unit * 2
+//   },
+//   inputRoot: {
+//     color: theme.palette.primary.contrastText
+//   },
+//   underline: {
+//     borderBottom: "2px solid white",
+//     "&:after": {
+//       // The source seems to use this but it doesn't work
+//       borderBottom: "2px solid white"
+//     }
+//   }
+// });
+
+const BootstrapInput = withStyles(theme => ({
+  root: {
+    'label + &': {
+      marginTop: theme.spacing(3),
+    },
+  },
+  input: {
+    borderRadius: 4,
+    position: 'relative',
+    backgroundColor: '#e1f5fe',
+    border: '1px solid #e1f5fe',
+    fontSize: 16,
+    width: 'auto',
+    padding: '10px 12px',
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    // Use the system font instead of the default Roboto font.
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    '&:focus': {
+      boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+      borderColor:'#e1f5fe',
+    },
+  },
+}))(InputBase);
 
 
 const theme = createMuiTheme({
@@ -24,25 +88,29 @@ const theme = createMuiTheme({
       main: '#30bced'
     },
     secondary: {
-      main: '#6ae2a0',
+      main: '#e1f5fe',
     },
   },
 });
 
 const blue=lightBlue[300]
+const white=grey[50]
 
 
-const CssTextField = withStyles({
+const CssTextField = withStyles(theme => ({
   root: {
     '& label.Mui-focused': {
       color: blue,
+    },
+    '& .MuiInput-underline': {
+      borderBottomColor: white,
     },
     '& .MuiInput-underline:after': {
       borderBottomColor: blue,
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'red',
+        borderColor: white,
       },
       '&:hover fieldset': {
         borderColor: 'yellow',
@@ -52,7 +120,12 @@ const CssTextField = withStyles({
       },
     },
   },
-})(TextField);
+}))(TextField);
+
+const style = {
+  color: white,
+  background: 'transparent'
+}
 
 class Login extends Component {
   state = {
@@ -166,8 +239,10 @@ class Login extends Component {
               {//material ui core component
               }
             <CssTextField
+                className="textfield"
+                style={style}
                 label="Email / Username"
-                // id="standard-basic"
+                id="custom-css-outlined-input"
                 formcontrolprops={{
                     fullWidth: true
                 }}
@@ -176,8 +251,9 @@ class Login extends Component {
                 onChange={e => this.handleChange("email", e.target.value)}
             />
             <CssTextField
+            className="textfield"
             label="Password"
-            id="standard-basic"
+            id="custom-css-outlined-input"
             formcontrolprops={{
                 fullWidth: true
             }}
@@ -185,25 +261,18 @@ class Login extends Component {
             value={this.state.password}
             onChange={e => this.handleChange("password", e.target.value)}
             />
-              {/* <input
+              {/* {/* <input
                 type="text"
                 value={this.state.email}
                 placeholder="Email"
                 onChange={e => this.handleChange("email", e.target.value)}
-              />
-
-              <input
-                value={this.state.password}
-                placeholder="Password"
-                type="password"
-                onChange={e => this.handleChange("password", e.target.value)}
               /> */}
             </div>
             <br></br>
 
             <div className="buttons">
-              <button onClick={this.registerButton}>Register</button>
-              <button onClick={this.login}>Log In</button>
+              <Button onClick={this.registerButton}>Register</Button>
+              <Button onClick={this.login}>Log In</Button>
             </div>
           </div>
         </div>
