@@ -130,5 +130,13 @@ module.exports = {
     .then(car => {
       res.status(200).send(car)
     })
+  },
+
+  getReleases (req, res) {
+    const db = req.app.get('db'); 
+    db.get_releases()
+    .then(releases => {
+      res.status(200).send(releases)
+    })
   }
 };

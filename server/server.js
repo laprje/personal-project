@@ -35,6 +35,7 @@ app.put('/api/user/:user_id', ctrl.changeEmail)
 app.delete('/api/user/:user_id', ctrl.deleteUser)
 app.post('/api/saved', ctrl.addCar)
 app.get('/api/cars/:email', ctrl.getSavedCar)
+app.get('/api/releases', ctrl.getReleases)
 
 //STRIPE STUFF
 const stripe = new stripeLoader(STRIPE_SECRET);
