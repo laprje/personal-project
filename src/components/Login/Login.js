@@ -12,101 +12,28 @@ import InputBase from '@material-ui/core/InputBase';
 import Input from '@material-ui/core/Input';
 import {Button} from '@material-ui/core'
 import {
-  fade,
-  ThemeProvider,
   withStyles,
-  makeStyles,
   createMuiTheme,
 } from '@material-ui/core/styles';
 import {lightBlue} from '@material-ui/core/colors'
-import {grey} from '@material-ui/core/colors'
-
-// const styles = theme => ({
-//   root: {
-//     display: "flex",
-//     flexWrap: "wrap",
-//     backgroundColor: "#333" // for illustrative purposes
-//   },
-//   formControl: {
-//     margin: theme.spacing.unit,
-//     minWidth: 120
-//   },
-//   selectEmpty: {
-//     marginTop: theme.spacing.unit * 2
-//   },
-//   inputRoot: {
-//     color: theme.palette.primary.contrastText
-//   },
-//   underline: {
-//     borderBottom: "2px solid white",
-//     "&:after": {
-//       // The source seems to use this but it doesn't work
-//       borderBottom: "2px solid white"
-//     }
-//   }
-// });
-
-const BootstrapInput = withStyles(theme => ({
-  root: {
-    'label + &': {
-      marginTop: theme.spacing(3),
-    },
-  },
-  input: {
-    borderRadius: 4,
-    position: 'relative',
-    backgroundColor: '#e1f5fe',
-    border: '1px solid #e1f5fe',
-    fontSize: 16,
-    width: 'auto',
-    padding: '10px 12px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:focus': {
-      boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-      borderColor:'#e1f5fe',
-    },
-  },
-}))(InputBase);
+import {blueGrey} from '@material-ui/core/colors'
 
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#30bced'
-    },
-    secondary: {
-      main: '#e1f5fe',
-    },
-  },
-});
 
 const blue=lightBlue[300]
-const white=grey[50]
+const white=blueGrey[700]
 
 
 const CssTextField = withStyles(theme => ({
   root: {
     '& label.Mui-focused': {
-      color: blue,
+      color: white,
     },
     '& .MuiInput-underline': {
       borderBottomColor: white,
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: blue,
+      borderBottomColor: white,
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
