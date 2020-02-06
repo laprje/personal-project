@@ -168,18 +168,17 @@ class Login extends Component {
             <CssTextField
                 label="Email / Username"
                 // id="standard-basic"
-                formControlProps={{
+                formcontrolprops={{
                     fullWidth: true
                 }}
                 type="text"
                 value={this.state.email}
                 onChange={e => this.handleChange("email", e.target.value)}
-                color="white"
             />
             <CssTextField
             label="Password"
             id="standard-basic"
-            formControlProps={{
+            formcontrolprops={{
                 fullWidth: true
             }}
             type="text"
