@@ -8,7 +8,8 @@ const initialState = {
     secondModel: '',
     year: '',
     secondYear: '',
-    loggedIn: false
+    loggedIn: false,
+    selected: {}
 }
 
 //action constants
@@ -21,6 +22,7 @@ const UPDATE_SECOND_MODEL = "UPDATE_SECOND_MODEL"
 const UPDATE_YEAR = "UPDATE_YEAR";
 const UPDATE_SECOND_YEAR = "UPDATE_SECOND_YEAR"
 const UPDATE_LOGGED_IN = "UPDATE_LOGGED_IN"
+const UPDATE_SELECTED = "UPDATE_SELECTED"
 
 //action builders
 export function updateUserInfo(userObj) {
@@ -87,6 +89,13 @@ export function updateSaved(car) {
     }
 }
 
+export function updateSelected(selected) {
+    return {
+        type: UPDATE_SELECTED,
+        payload: {selected}
+    }
+}
+
 //add function update cars list here!!!
 
 export default function reducer(state = initialState, action) {
@@ -108,6 +117,8 @@ export default function reducer(state = initialState, action) {
         case UPDATE_SECOND_MODEL:
             return {...state, ...action.payload};
         case UPDATE_SECOND_YEAR:
+            return {...state, ...action.payload};
+        case UPDATE_SELECTED:
             return {...state, ...action.payload};
         default:
             return state;

@@ -5,8 +5,10 @@ import "./Release.css";
 import Loading from "../Loading/Loading";
 import { default as Card } from "../ReleaseCard/ReleaseCard";
 import {default as Expanded} from '../ExpandedCard/ExpandedCard'
+import {connect} from 'react-redux'
+import {updateSelected} from '../../ducks/reducer'
 
-export default class Release extends Component {
+class Release extends Component {
   constructor() {
     super();
     this.state = {
@@ -83,3 +85,14 @@ export default class Release extends Component {
     );
   }
 }
+
+function mapStateToProps(reduxState) {
+  const { selected } = reduxState;
+  return {
+    selected
+  };
+}
+
+export default connect(mapStateToProps, {
+  updateSelected
+})(Release);
