@@ -14,7 +14,10 @@ class ReleaseCard extends Component {
 
    async expandFunction() {
         await this.setState({selected: {make: this.props.make, model: this.props.model}})
-        console.log(this.state.selected)
+        // console.log(this.state.selected)
+        await this.props.updateSelected(this.state.selected)
+        // console.log(this.props.selected)
+
     }
 
   render() {

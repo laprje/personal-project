@@ -44,11 +44,6 @@ class Release extends Component {
     }, 800);
   }
 
-  expandFunction() {
-    this.setState({hidden: false})
-    console.log(this.props)
-  }
-
   render() {
     return (
       <>
@@ -72,7 +67,7 @@ class Release extends Component {
                     <Card  onClick={() => this.expandFunction()} key={el + el.release_date + el.make + el.model} releaseObj={el} image={el.image} make={el.make} model={el.model} release_date={el.release_date} base_msrp={el.base_msrp} drive_type={el.drive_type} top_engine={el.top_engine} bottom_engine = {el.bottom_engine} power={el.power} torque={el.torque} power_rpm={el.power_rpm} torque_rpm={el.torque_rpm} zero_to_sixty={el.zero_to_sixty} top_speed={el.top_speed} mpg_highway={el.mpg_highway} mpg_city={el.mpg_city} range={el.range} weight={el.weight} cargo_volume={el.cargo_volume} charge_time={el.charge_time} body_type = {el.body_type} door_count={el.door_count} seating={el.seating} sources={el.sources}/>
                 ))}
               </div>
-              {!this.state.hidden?(
+              {this.props.selected.make&&this.props.selected.model?(
                 <Expanded>
                   {/*expanded card view*/}
                 </Expanded>
