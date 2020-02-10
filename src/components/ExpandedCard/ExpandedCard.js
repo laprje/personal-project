@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux'
+import {updateSelected} from '../../ducks/reducer'
 
 import "./ExpandedCard.css";
 
-export default class ExpandedCard extends Component {
+class ExpandedCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,3 +22,15 @@ export default class ExpandedCard extends Component {
     );
   }
 }
+
+function mapStateToProps(reduxState) {
+  const { selected } = reduxState;
+  return {
+    selected
+  };
+}
+
+export default connect(mapStateToProps, {
+  updateSelected
+})(ExpandedCard);
+

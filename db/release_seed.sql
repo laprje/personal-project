@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS releases;
 
 CREATE TABLE releases (
+    id SERIAL PRIMARY KEY,
     image TEXT,
     make VARCHAR(20),
     model VARCHAR(20),
@@ -40,9 +41,4 @@ weight, cargo_volume, charge_time, body_type, door_count, seating, sources ) VAL
 
 INSERT INTO releases (image, make, model, release_date, base_msrp, drive_type, bottom_engine, top_engine, power, zero_to_sixty, top_speed, body_type, door_count, seating, sources) VALUES
 ('https://pictures.topspeed.com/IMG/crop_webp/201806/alfa-romeo-gtv_800x0.webp', 'Alfa Romeo', 'GTV', 2020, 40000, 'AWD', '2.0L 4-Cylinder', 'Twin-Turbocharged V6 W/ E-Boost (Mild Hybrid)', 600, 3.5, 190, 'Coupe', '2', '4', 'https://www.topspeed.com/cars/alfa-romeo/2020-alfa-romeo-gtv-ar181434.html')
-
-
-
-
-
 

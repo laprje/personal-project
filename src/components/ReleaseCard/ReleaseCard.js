@@ -1,13 +1,20 @@
 import React, {Component} from "react";
+import {connect} from 'react-redux'
+import {updateSelected} from '../../ducks/reducer'
 
 import "./ReleaseCard.css";
 
-export default class ReleaseCard extends Component {
+class ReleaseCard extends Component {
     constructor(props){
         super(props)
         this.state = {
-            expanded: false
+            selected: {}
         }
+    }
+
+   async expandFunction() {
+        await this.setState({selected: {make: this.props.make, model: this.props.model}})
+        console.log(this.state.selected)
     }
 
   render() {
@@ -30,9 +37,21 @@ export default class ReleaseCard extends Component {
                     {/* <h6> 0-60: {this.props.zero_to_sixty?this.props.zero_to_sixty + " seconds":'N/A'}</h6> */}
                 </div>
             </div>
-            <button className="expand"><i className="fas fa-chevron-right"></i></button>
+            <button className="expand" onClick={() => this.expandFunction()}><i className="fas fa-chevron-right"></i></button>
         </div>
         </div>
     );
     }
 }
+
+function mapStateToProps(reduxState) {
+    const { selected } = reduxState;
+    return {
+      selected
+    };
+  }
+  
+  export default connect(mapStateToProps, {
+    updateSelected
+  })(ReleaseCard);
+  
