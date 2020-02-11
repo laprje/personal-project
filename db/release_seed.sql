@@ -35,10 +35,12 @@ VALUES
 
 INSERT INTO releases (image, make, model, release_date, base_msrp, drive_type, bottom_engine, power, torque, zero_to_sixty, top_speed, range,
 weight, cargo_volume, charge_time, body_type, door_count, seating, sources ) VALUES
-('https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/first-drives/legacy/1-porsche-taycan-2020-fd-hero-front.jpg?itok=fOcS9dmc', 'Porsche', 'Taycan', '2020', 185000, 
+('https://cdn.motor1.com/images/mgl/kJWEN/s1/2020-porsche-taycan.jpg', 'Porsche', 'Taycan', '2020', 185000, 
 'AWD', 'Two Permanent Magnet Synchronous Electric Motors', 750, 774, 2.6, 162, 241, 5100, '12.9 Cubic Feet', '11 Hours', 'Sedan', '4', '4', 'https://www.motor1.com/reviews/372662/2020-porsche-taycan-first-drive/')
 ;
 
 INSERT INTO releases (image, make, model, release_date, base_msrp, drive_type, bottom_engine, top_engine, power, zero_to_sixty, top_speed, body_type, door_count, seating, sources) VALUES
-('https://pictures.topspeed.com/IMG/crop_webp/201806/alfa-romeo-gtv_800x0.webp', 'Alfa Romeo', 'GTV', 2020, 40000, 'AWD', '2.0L 4-Cylinder', 'Twin-Turbocharged V6 W/ E-Boost (Mild Hybrid)', 600, 3.5, 190, 'Coupe', '2', '4', 'https://www.topspeed.com/cars/alfa-romeo/2020-alfa-romeo-gtv-ar181434.html')
+('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/alfa-romeo-gtv-illo-christianschulte-1530629520.jpg', 'Alfa Romeo', 'GTV', 2020, 40000, 'AWD', '2.0L 4-Cylinder', 'Twin-Turbocharged V6 W/ E-Boost (Mild Hybrid)', 600, 3.5, 190, 'Coupe', '2', '4', 'https://www.topspeed.com/cars/alfa-romeo/2020-alfa-romeo-gtv-ar181434.html')
+
+
 

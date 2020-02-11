@@ -65,3 +65,8 @@
   color: black;
   align-self: center;
 }
+
+.card-body img {
+    width: 100%;
+    height: auto;
+}

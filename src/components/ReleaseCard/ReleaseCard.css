@@ -42,14 +42,16 @@
 
 .img-container {
     display: flex;
-    
+    width: 317px;
+    height: 210px;
 }
 
 .img-container img {
-    height: 210px;
-    width: auto;
-    border-radius: 12px;
+    width: 100%;
+    height: auto;
+    max-height: 208px;
     align-self: center;
+    border-radius: 5px;
 }
 
 .release-card .right-box {
@@ -72,7 +74,7 @@
 
 .card-info i {
     color: #30BCED;
-    font-size: 50px;
+    font-size: 60px;
 }
 
 /* .card-info i:hover {

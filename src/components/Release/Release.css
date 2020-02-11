@@ -11,3 +11,32 @@
     width: 400px;
     height: 100vh;
 } */
+
+.card-container {
+    overflow-y: auto;
+}
+
+#scroll-style::-webkit-scrollbar-track
+{
+  box-shadow: 1px 1pxe;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: rgb(102, 102, 102);
+  
+}
+
+#scroll-style::-webkit-scrollbar
+{
+	border-radius: 10px;
+	width: 12px;
+	background-color: rgb(102, 102, 102);
+  
+}
+
+#scroll-style::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  box-shadow: 1px 1px;  
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
