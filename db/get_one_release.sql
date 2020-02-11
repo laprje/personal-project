@@ -1,0 +1,1 @@
+SELECT * FROM releases WHERE make = $1 AND model = $2;

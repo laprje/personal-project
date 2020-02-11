@@ -36,6 +36,7 @@ app.delete('/api/user/:user_id', ctrl.deleteUser)
 app.post('/api/saved', ctrl.addCar)
 app.get('/api/cars/:email', ctrl.getSavedCar)
 app.get('/api/releases', ctrl.getReleases)
+app.get('/api/releases/release/:make/:model', ctrl.getOneRelease)
 
 //STRIPE STUFF
 const stripe = new stripeLoader(STRIPE_SECRET);

@@ -138,5 +138,14 @@ module.exports = {
     .then(releases => {
       res.status(200).send(releases)
     })
+  },
+
+  getOneRelease (req, res) {
+    const db = req.app.get('db');
+    const {make, model} = req.params
+    db.get_one_release(make, model)
+    .then(release => {
+      res.status(200).send(release)
+    })
   }
 };

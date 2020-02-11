@@ -1,34 +1,67 @@
-.expanded-card {
-    background-color: rgb(236, 236, 236);
-    width: 700px;
-    border-radius: 5px;
-}
 
-.exit {
-    display: flex;
-    flex-direction: row-reverse;
-}
 
 .exit-btn {
-    background: transparent;
-    color: rgb(65, 65, 65);
-    border: none;
-    font-size: 40px;
+  background: transparent;
+  color: rgb(65, 65, 65);
+  border: none;
+  font-size: 40px;
+  
 }
 
 .exit-btn:hover {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
-  }
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+.exit-btn:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+.expanded-card {
+  width: 700px;
+  height: 95%;
+  border-radius: 5px;
   
-  .exit-btn:hover {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-  }
+}
+
+.card-header {
+  background: #6ae2a0;
+  height: 45px;
+  border-radius: 3px;
+  color: rgb(20, 20, 20);
+  display: flex;
+  justify-content: space-around;
+  -webkit-box-shadow: 0px 0px 20px -12px rgba(0,0,0,0.66);
+  -moz-box-shadow: 0px 0px 20px -12px rgba(0,0,0,0.66);
+  box-shadow: 0px 0px 20px -12px rgba(0,0,0,0.66);
+}
+
+.card-header .right-box {
+    background: transparent;
+    display: flex;
+    align-items: flex-end;
+    margin: none;
+    height: 45px;
+    
+}
+
+.card-header .left-box {
+    background: transparent;
+    display: flex;
+    align-items: flex-end;
+    margin: none;
+    height: 45px;
+}
+
+.expanded-card .card-header h4 {
+  color: black;
+  align-self: center;
+}
