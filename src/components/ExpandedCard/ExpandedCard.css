@@ -29,7 +29,12 @@
   width: 700px;
   height: 95%;
   border-radius: 5px;
-  
+  display: flex;
+  flex-direction: column;
+}
+
+.expanded-card img {
+    position: sticky;
 }
 
 .card-header {
@@ -59,14 +64,18 @@
     align-items: flex-end;
     margin: none;
     height: 45px;
+    
 }
 
 .expanded-card .card-header h4 {
   color: black;
   align-self: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .card-body img {
     width: 100%;
     height: auto;
+    border-radius: 3px;
 }

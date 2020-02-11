@@ -15,7 +15,8 @@ class Release extends Component {
       loading: true,
       releases: [],
       hidden: true,
-      selected: {}
+      selected: {},
+      
     };
   }
 

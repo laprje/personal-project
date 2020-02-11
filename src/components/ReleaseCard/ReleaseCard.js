@@ -9,9 +9,14 @@ class ReleaseCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: this.props.selected
+      selected: this.props.selected,
+      
     };
   }
+
+  withCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
   async expandFunction() {
     const { make } = this.props;
@@ -27,7 +32,7 @@ class ReleaseCard extends Component {
   render() {
     return (
       <div className="release-card">
-        <div className="card-info">
+        <div className="card-info" onClick={() => this.expandFunction()}>
           <div className="img-container">
             <img
               className="car-image"
@@ -49,7 +54,7 @@ class ReleaseCard extends Component {
               </h6>
               <h6>
                 MSRP:{" "}
-                {this.props.base_msrp ? "$" + this.props.base_msrp : "N/A"}
+                {this.props.base_msrp ? "$" + this.withCommas(this.props.base_msrp) : "N/A"}
               </h6>
               <h6>
                 Engine:{" "}

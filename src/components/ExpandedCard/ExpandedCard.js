@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateSelected } from "../../ducks/reducer";
+import MiniHeader from './MiniHeader'
 
 import "./ExpandedCard.css";
 
@@ -39,6 +40,7 @@ class ExpandedCard extends Component {
           </div>
           <div className="card-body">
             <img id="i" src={this.props.selected.image} />
+            <MiniHeader text="Body and Chassis"/>
           </div>
         </div>
       </div>
