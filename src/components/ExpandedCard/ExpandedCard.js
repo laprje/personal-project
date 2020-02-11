@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateSelected } from "../../ducks/reducer";
-import FastAverageColor from "fast-average-color";
 
 import "./ExpandedCard.css";
 
@@ -13,21 +12,11 @@ class ExpandedCard extends Component {
     };
   }
 
-  componentWillMount() {
-    const fac = new FastAverageColor();
-    // dominant color select
-  }
-
-  // updateInfo() {
-  //   this.componentDidMount()
-  //   this.props.updateSelected({selected: {make: this.state.selected.make, model: this.state.selected.model}})
-  // }
-
   render() {
     return (
       <div className="column">
         <div className="expanded-card">
-          <div className="card-header">
+          <div className="card-header" id="card-header">
             <div className="left-box">
               <h4>
                 {this.props.selected.release_date
@@ -48,7 +37,9 @@ class ExpandedCard extends Component {
               </button>
             </div>
           </div>
-          <div className="card-body"></div>
+          <div className="card-body">
+            <img id="i" src={this.props.selected.image} />
+          </div>
         </div>
       </div>
     );
