@@ -63,6 +63,7 @@ class Release extends Component {
               </h1>
               <div className="release">
                 <div className="card-container" id="scroll-style">
+                <div className="size-limit">
                   {this.state.releases.data.map(el => (
                     <Card
                       onClick={() => this.expandFunction()}
@@ -94,6 +95,7 @@ class Release extends Component {
                       sources={el.sources}
                     />
                   ))}
+                </div>
                 </div>
                 {this.props.selected.make && this.props.selected.model ? (
                   <Expanded>{/*expanded card view*/}</Expanded>
