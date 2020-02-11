@@ -8,8 +8,8 @@ CREATE TABLE releases (
     release_date VARCHAR(40),
     base_msrp NUMERIC,
     drive_type VARCHAR(10),
-    top_engine VARCHAR(60),
-    bottom_engine VARCHAR(60),
+    top_engine VARCHAR(100),
+    bottom_engine VARCHAR(100),
     power NUMERIC,
     torque NUMERIC,
     power_rpm NUMERIC,
@@ -41,6 +41,11 @@ weight, cargo_volume, charge_time, body_type, door_count, seating, sources ) VAL
 
 INSERT INTO releases (image, make, model, release_date, base_msrp, drive_type, bottom_engine, top_engine, power, zero_to_sixty, top_speed, body_type, door_count, seating, sources) VALUES
 ('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/alfa-romeo-gtv-illo-christianschulte-1530629520.jpg', 'Alfa Romeo', 'GTV', 2020, 40000, 'AWD', '2.0L 4-Cylinder', 'Twin-Turbocharged V6 W/ E-Boost (Mild Hybrid)', 600, 3.5, 190, 'Coupe', '2', '4', 'https://www.topspeed.com/cars/alfa-romeo/2020-alfa-romeo-gtv-ar181434.html')
+;
+
+INSERT INTO releases (image, make, model, base_msrp, power, drive_type, top_engine, zero_to_sixty, seating, release_date, body_type) VALUES
+('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ferrari-sf90-stradale-105-1559152180.jpg?crop=0.960xw:0.880xh;0.0176xw,0.120xh&resize=2048:*', 'Ferrari', 'SF90 Stradale',
+600000, 986, 'AWD', '3.9L Twin-Turbocharged V8 w/ 3 Electric Motors', 2.5, 2, 2020, 'Coupe')
 
 
 

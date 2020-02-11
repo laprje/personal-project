@@ -274,7 +274,7 @@ class Vehicle extends Component {
 
   render() {
     return (
-      <>
+      <div className='vehicle-all'>
         {this.state.loading && (
           <>
             <Header></Header>
@@ -521,7 +521,7 @@ class Vehicle extends Component {
             </div>
           </div>
         )}
-      </>
+      </div>
     );
   }
 }
