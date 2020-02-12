@@ -84,3 +84,7 @@
 .card-body h3 {
   color: rgb(99, 99, 99);
 }
+
+#card-header {
+  position: sticky;
+}
