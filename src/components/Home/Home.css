@@ -5,6 +5,10 @@
     
 } */
 
+* {
+  overflow: hidden;
+}
+
 .all .home-header {
   position: fixed;
 }
@@ -12,7 +16,7 @@
 .home {
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: 92vh;
 
   overflow: hidden;
   color: ghostwhite;

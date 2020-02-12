@@ -44,8 +44,8 @@ class ReleaseCard extends Component {
           </div>
           <div className="right-box">
             <h2>
-              {this.props.make ? this.props.make : "vOlVo"}{" "}
-              {this.props.model ? this.props.model : "V60"}
+              {this.props.make ? this.props.make : "N/A"}{" "}
+              {this.props.model ? this.props.model : "N/A"}
             </h2>
             <div className="info">
               <h6>

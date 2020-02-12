@@ -40,8 +40,8 @@ class ExpandedCard extends Component {
           </div>
           <div className="card-body">
             <img id="i" src={this.props.selected.image} />
-            <MiniSection text="Body and Chassis" info={[this.props.selected.body_type, this.props.selected.drive_type, this.props.selected.door_count, this.props.selected.seating]}/>
-            <MiniSection text="Powertrain" info={[this.props.selected.top_engine, this.props.selected.bottom_engine, this.props.selected.power, this.props.selected.power_rpm, this.props.selected.torque, this.props.selected.torque_rpm]}/>
+            <MiniSection text="Body and Chassis" info={[this.props.selected.body_type, "Body Type", this.props.selected.drive_type, "Drivetrain", this.props.selected.door_count, "Door Count", this.props.selected.seating, "Seating"]}/>
+            <MiniSection text="Powertrain" info={[this.props.selected.top_engine, "Engine", this.props.selected.bottom_engine, "Engine", this.props.selected.power, "Power Output", this.props.selected.power_rpm, "Power RPM", this.props.selected.torque, "Torque",  this.props.selected.torque_rpm, "Torque RPM"]}/>
           </div>
         </div>
       </div>

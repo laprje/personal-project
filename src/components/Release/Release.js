@@ -15,8 +15,7 @@ class Release extends Component {
       loading: true,
       releases: [],
       hidden: true,
-      selected: {},
-      
+      selected: {}
     };
   }
 
@@ -58,12 +57,11 @@ class Release extends Component {
         {/* RENDER AFTER LOADING ANIMATION */}
         {!this.state.loading && (
           <>
-            
-              <h1>
-                Welcome to Releases!<br></br>(Beta)
-              </h1>
-              <div className="release">
-                <div className="card-container" id="scroll-style">
+            <h1>
+              Welcome to Releases!<br></br>(Beta)
+            </h1>
+            <div className="release">
+              <div className="card-container" id="scroll-style">
                 <div className="size-limit">
                   {this.state.releases.data.map(el => (
                     <Card
@@ -97,11 +95,16 @@ class Release extends Component {
                     />
                   ))}
                 </div>
-                </div>
-                {this.props.selected.make && this.props.selected.model ? (
-                  <Expanded>{/*expanded card view*/}</Expanded>
-                ) : null}
               </div>
+
+              {this.props.selected.make && this.props.selected.model ? (
+                <div className="expanded-container" id="scroll-style-1">
+                  <div className="limit">
+                    <Expanded>{/*expanded card view*/}</Expanded>
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </>
         )}
       </>

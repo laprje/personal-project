@@ -1,8 +1,21 @@
+.mini {
+  display: flex;
+  flex-direction: column;
+}
+
 .mini-section {
     width: 100%;
     height: auto;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: space-between;
+  }
+
+  .mini-section li {
+    list-style-type: none;
+    font-size: 13px;
+    margin: 0px;
   }
 
   .mini-header {
