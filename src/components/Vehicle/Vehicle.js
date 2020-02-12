@@ -284,11 +284,12 @@ class Vehicle extends Component {
           </>
         )}
         {!this.state.loading && (
-          <div className="vehicle">
+          <div className="vehicle" id = "vehicle">
             <Header />
+            <div className="literally-all">
             <div className="top-left-container">
               <button onClick={this.goBack} className="back-btn">
-                <i class="fas fa-chevron-left"></i>
+                <i className="fas fa-chevron-left"></i>
               </button>
 
               <div className="hidden-text">Back to Search Page</div>
@@ -520,7 +521,9 @@ class Vehicle extends Component {
               )}
             </div>
           </div>
+          </div>
         )}
+        
       </div>
     );
   }

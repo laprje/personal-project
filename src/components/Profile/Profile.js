@@ -189,7 +189,7 @@ class Profile extends Component {
               <h2>Your Account</h2>
               <div className="profile-box">
                 <div className="left-box">
-                  <i className="profile-icon" class="fas fa-user"></i>
+                  <i className="profile-icon" className="fas fa-user"></i>
                 </div>
                 <div className="right-box">
                   <div className="email">

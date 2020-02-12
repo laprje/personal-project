@@ -47,5 +47,6 @@ INSERT INTO releases (image, make, model, base_msrp, power, drive_type, top_engi
 ('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ferrari-sf90-stradale-105-1559152180.jpg?crop=0.960xw:0.880xh;0.0176xw,0.120xh&resize=2048:*', 'Ferrari', 'SF90 Stradale',
 600000, 986, 'AWD', '3.9L Twin-Turbocharged V8 w/ 3 Electric Motors', 2.5, 2, 2, 2020, 'Coupe')
 
-
+INSERT INTO releases (image, make, model, base_msrp, power,drive_type, top_engine, seating, door_count, release_date, body_type, range ) VALUES 
+('https://cdn.motor1.com/images/mgl/2Rvmx/s1/next-generation-jaguar-xj-rendering-by-kolesa-ru.jpg', 'Jaguar', 'XJ', 100000, 600, 'AWD', 'Four Electric Motors', 5, 4, 2021, 'Sedan', 300);
 

@@ -1,1 +1,2 @@
-SELECT* FROM releases;
+SELECT* FROM releases
+ORDER BY id DESC;

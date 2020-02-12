@@ -1,3 +1,11 @@
+.vehicle-all #vehicle {
+  overflow-y: auto;
+}
+
+.literally-all {
+  overflow-y: scroll;
+}
+
 .car-info {
     display: flex;
     flex-direction: row;

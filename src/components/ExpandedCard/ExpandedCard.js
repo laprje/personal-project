@@ -13,6 +13,10 @@ class ExpandedCard extends Component {
     };
   }
 
+  withCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
   render() {
     return (
       <div className="column">
@@ -40,7 +44,7 @@ class ExpandedCard extends Component {
           </div>
           <div className="card-body">
             <img id="i" src={this.props.selected.image} />
-            <h3>Expected MSRP: {this.props.selected.base_msrp}</h3>
+            <h3>Expected MSRP: ${this.withCommas(this.props.selected.base_msrp)}</h3>
             <MiniSection text="Body and Chassis" info={[this.props.selected.body_type, "Body Type", this.props.selected.drive_type, "Drivetrain", this.props.selected.door_count, "Door Count", this.props.selected.seating, "Seating"]}/>
             <MiniSection text="Powertrain" info={[this.props.selected.top_engine, "Top Engine", this.props.selected.bottom_engine, "Bottom Engine", this.props.selected.power, "Power Output", this.props.selected.power_rpm, "Power RPM", this.props.selected.torque, "Torque",  this.props.selected.torque_rpm, "Torque RPM"]}/>
           </div>
