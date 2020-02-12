@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateSelected } from "../../ducks/reducer";
-import MiniHeader from './MiniHeader'
+import MiniSection from './MiniSection'
 
 import "./ExpandedCard.css";
 
@@ -40,7 +40,8 @@ class ExpandedCard extends Component {
           </div>
           <div className="card-body">
             <img id="i" src={this.props.selected.image} />
-            <MiniHeader text="Body and Chassis"/>
+            <MiniSection text="Body and Chassis" info={[this.props.selected.body_type, this.props.selected.drive_type, this.props.selected.door_count, this.props.selected.seating]}/>
+            <MiniSection text="Powertrain" info={[this.props.selected.top_engine, this.props.selected.bottom_engine, this.props.selected.power, this.props.selected.power_rpm, this.props.selected.torque, this.props.selected.torque_rpm]}/>
           </div>
         </div>
       </div>
