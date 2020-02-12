@@ -9,10 +9,19 @@ class ReleaseCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: this.props.selected,
-      
+      selected: this.props.selected
+  
     };
   }
+
+  shorten(str) {
+    if(str && str.length > 46) {
+      const newStr = str.substring(0, 45) + "..."
+      return newStr
+    }
+  }
+
+  
 
   withCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -28,6 +37,7 @@ class ReleaseCard extends Component {
     //   console.log(this.props.selected)
     });
   }
+
 
   render() {
     return (

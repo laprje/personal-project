@@ -8,8 +8,21 @@
     height: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: space-between;
+    justify-content: stretch;
+    align-items: space-evenly;
+  }
+
+  .mini-section .fields {
+    width: 40%;
+  }
+
+ 
+
+  .mini-section ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
   }
 
   .mini-section li {

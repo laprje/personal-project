@@ -32,8 +32,14 @@ class Release extends Component {
       this.setState({
         releases: res
       });
-      console.log(this.state.releases);
+      // console.log(this.state.releases);
     });
+  }
+  
+  shorten(str) {
+    if(str && str.length > 45) {
+      return str = str.substring(0,44) + "...";
+  } else return str
   }
 
   componentDidMount() {
@@ -74,8 +80,8 @@ class Release extends Component {
                       release_date={el.release_date}
                       base_msrp={el.base_msrp}
                       drive_type={el.drive_type}
-                      top_engine={el.top_engine}
-                      bottom_engine={el.bottom_engine}
+                      top_engine={this.shorten(el.top_engine)}
+                      bottom_engine={this.shorten(el.bottom_engine)}
                       power={el.power}
                       torque={el.torque}
                       power_rpm={el.power_rpm}
