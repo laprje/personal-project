@@ -42,8 +42,8 @@ class Header extends Component {
 
           <div className="button-container">
             <Link className="username" to="/profile">
-              <div className="profile-link">
-                <h3>Hello, {this.props.email}</h3>
+              <div className="profile-link" id="greeting">
+                <h3 >Hello, {this.props.email}</h3>
                 <button className="icon">
                   <i className="fas fa-user"></i>
                 </button>
