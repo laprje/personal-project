@@ -179,7 +179,7 @@ class Login extends Component {
             formcontrolprops={{
                 fullWidth: true
             }}
-            type="text"
+            type="password"
             value={this.state.password}
             onChange={e => this.handleChange("password", e.target.value)}
             />
