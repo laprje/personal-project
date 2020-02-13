@@ -11,7 +11,8 @@ import {
   updateYear,
   updateSecondMake,
   updateSecondModel,
-  updateSecondYear
+  updateSecondYear,
+  updateUser
 } from "../../ducks/reducer";
 import Loading from "../Loading/Loading";
 
@@ -20,6 +21,8 @@ class Vehicle extends Component {
     super(props);
     this.state = {
       loading: true,
+      user: {},
+      email: '',
       secondCar: false,
       finishedSearch: false,
       dataLength: 1,
@@ -202,16 +205,27 @@ class Vehicle extends Component {
       });
   }
 
-  componentWillMount() {
-    if(!this.props.email && !this.props.user_id) {
-      this.props.history.push('/')
-    }
-  }
+  // componentWillMount() {
+  //   if(!this.props.email && !this.props.user_id) {
+  //     this.props.history.push('/')
+  //   }
+  // }
 
-  componentDidMount() {
+  async componentDidMount() {
     setTimeout(() => {
       this.setState({ loading: false });
     }, 800);
+    await axios.get("/auth/getSession").then(res => {
+      // console.log(res.data)
+      this.setState({ user: res.data, email: res.data.email });
+    });
+    if (!this.state.user.email) {
+      this.props.history.push("/");
+    } else {
+      // console.log(this.state.user);
+      this.props.updateUserInfo({email: this.state.email})
+      this.props.updateUser({user: this.state.user})
+    }
     this.getCar();
     axios
       .get(
@@ -363,7 +377,7 @@ class Vehicle extends Component {
                 >
                   <option>Number of Years to Display</option>
                   {this.state.displayYears.map(el => {
-                    return <option value={el.value}>{el}</option>;
+                    return <option key={el.value} value={el.value}>{el}</option>;
                   })}
                 </select>
                 <select
@@ -379,7 +393,7 @@ class Vehicle extends Component {
                 >
                   <option>{this.props.make}</option>
                   {this.state.makes.map(el => {
-                    return <option value={el.value}>{el}</option>;
+                    return <option key={el.value} value={el.value}>{el}</option>;
                   })}
                 </select>
                 <select
@@ -393,7 +407,7 @@ class Vehicle extends Component {
                 >
                   <option>{this.props.model}</option>
                   {this.state.models.map(el => {
-                    return <option value={el.value}>{el}</option>;
+                    return <option key={el.value} value={el.value}>{el}</option>;
                   })}
                 </select>
                 <select
@@ -407,7 +421,7 @@ class Vehicle extends Component {
                 >
                   <option>{this.props.year}</option>
                   {this.state.years.map(el => {
-                    return <option value={el.value}>{el}</option>;
+                    return <option key={el.value} value={el.value}>{el}</option>;
                   })}
                 </select>
               </div>
@@ -530,8 +544,9 @@ class Vehicle extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { email, user_id, make, model, year, secondMake, secondModel, secondYear } = reduxState;
+  const { user, email, user_id, make, model, year, secondMake, secondModel, secondYear } = reduxState;
   return {
+    user,
     email,
     user_id,
     make,
@@ -550,5 +565,6 @@ export default connect(mapStateToProps, {
   updateYear,
   updateSecondMake,
   updateSecondModel,
-  updateSecondYear
+  updateSecondYear,
+  updateUser
 })(Vehicle);

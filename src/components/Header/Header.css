@@ -16,7 +16,7 @@
 }
 
 .Header i {
-  font-size: 40px;
+  font-size: 38px;
 }
 
 .Header .icon {
@@ -42,8 +42,17 @@
 
 .Header .button-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+}
+
+ .button-container a {
+  text-decoration: none;
+  color: black;
+}
+
+.button-container .username {
+  margin-right: -12px;
 }
 
 .Header .profile-link {
@@ -115,6 +124,8 @@
   -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
+
+
 
 /* media queries */
 

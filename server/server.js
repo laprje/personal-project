@@ -24,7 +24,7 @@ app.use(session({
 app.post('/auth/register', ctrl.register)
 app.post('/auth/login', checkForSession, ctrl.login)
 app.post('/auth/logout', ctrl.logout)
-app.get('/auth/getSession', ctrl.getSession)
+app.get('/auth/getSession', checkForSession, ctrl.getSession)
 app.get('/api/auth/me', ctrl.getUser)
 app.get('/api/user/:email', ctrl.findUser)
 

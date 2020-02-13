@@ -7,6 +7,7 @@ import { updateUserInfo } from "../../ducks/reducer";
 import Swal from "sweetalert2";
 import SavedVehicle from "../Vehicle/SavedVehicle";
 import Loading from "../Loading/Loading";
+import {updateUser} from '../../ducks/reducer';
 
 class Profile extends Component {
   constructor(props) {
@@ -69,24 +70,33 @@ class Profile extends Component {
       });
   }
 
-  componentWillMount() {
-    if(!this.props.email && !this.props.user_id) {
-      this.props.history.push('/')
-    }
-  }
 
-  componentDidMount(req, res) {
+  async componentDidMount(req, res) {
     
     setTimeout(() => {
       this.setState({ loading: false });
     }, 800);
-    axios.get("/api/auth/me").then(user => {
-      this.setState({
-        user: user.data,
-        email: user.data.email
-      });
+    await axios.get("/auth/getSession").then(res => {
+      // console.log(res.data)
+      this.setState({ user: res.data, email: res.data.email });
+      
+      // console.log(this.props.user)
     });
-    if (this.state.email) {
+    if (!this.state.user.email) {
+      this.props.history.push("/");
+      console.log('no user!!!')
+    } else {
+      // console.log(this.state.user);
+      this.props.updateUserInfo({email: this.state.email})
+      this.props.updateUser({user: this.state.user})
+    }
+    // axios.get("/api/auth/me").then(user => {
+    //   this.setState({
+    //     user: user.data,
+    //     email: user.data.email
+    //   });
+    // });
+    if (this.state.user.email) {
       axios.get(`/api/cars/${this.props.email}`).then(res => {
         if (res.data[0].cars) {
           let car = JSON.parse(res.data[0].cars);
@@ -100,6 +110,8 @@ class Profile extends Component {
       this.getCar();
     }
   }
+
+  
 
   handleChange = (key, value) => {
     this.setState({ [key]: value });
@@ -171,6 +183,10 @@ class Profile extends Component {
       .catch(err => console.log(err));
   }
 
+  hehe() {
+    console.log(this.props)
+  }
+
   render() {
     return (
       <>
@@ -213,7 +229,8 @@ class Profile extends Component {
                   <button
                     className="edit-btn"
                     onClick={() => {
-                      this.toggleEdit();
+                      // this.toggleEdit();
+                      this.hehe()
                     }}
                   >
                     Change Email
@@ -250,10 +267,10 @@ class Profile extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const {email, user_id} = reduxState;
+  const {user, email, user_id} = reduxState;
   return {
-    email, user_id
+    user, email, user_id
   };
 }
 
-export default connect(mapStateToProps, { updateUserInfo })(Profile);
+export default connect(mapStateToProps, { updateUserInfo, updateUser })(Profile);

@@ -56,6 +56,9 @@ module.exports = {
   getSession: (req, res) => {
     if (req.session.user) {
       res.status(200).send(req.session.user);
+    } else {
+      console.log('ERROR: controller.getSession')
+      res.status(500).send({Message: 'No Logged-In User.'})
     }
   },
 

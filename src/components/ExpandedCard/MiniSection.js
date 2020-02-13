@@ -16,7 +16,7 @@ export default function MiniSection(props) {
       </div>
       <div className="mini-section">
         <div className="fields">
-          <ul compact>
+          <ul >
             {dataFieldArr.map(el => {
               if (el)
                 return (
@@ -28,7 +28,7 @@ export default function MiniSection(props) {
           </ul>
         </div>
         <div className="data">
-          <ul compact>
+          <ul >
             {dataArray.map(el => {
               if (el && !el.includes('null')) {
                 return (

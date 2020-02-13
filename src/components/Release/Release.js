@@ -7,6 +7,7 @@ import { default as Card } from "../ReleaseCard/ReleaseCard";
 import { default as Expanded } from "../ExpandedCard/ExpandedCard";
 import { connect } from "react-redux";
 import { updateSelected } from "../../ducks/reducer";
+import {updateUser, updateUserInfo} from '../../ducks/reducer';
 
 class Release extends Component {
   constructor() {
@@ -15,17 +16,12 @@ class Release extends Component {
       loading: true,
       releases: [],
       hidden: true,
-      selected: {}
+      selected: {},
+      user: {},
+      email: ''
     };
   }
 
-  /* use this for force log out if user does not exist. Commented out for development */
-
-  // componentWillMount() {
-  //     if(!this.props.email && !this.props.user_id) {
-  //       this.props.history.push('/')
-  //     }
-  //   }
 
   getReleases() {
     axios.get("/api/releases").then(res => {
@@ -42,11 +38,22 @@ class Release extends Component {
   } else return str
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.getReleases();
     setTimeout(() => {
       this.setState({ loading: false });
     }, 800);
+    await axios.get("/auth/getSession").then(res => {
+      // console.log(res.data)
+      this.setState({ user: res.data, email: res.data.email });
+    });
+    if (!this.state.user.email) {
+      this.props.history.push("/");
+    } else {
+      console.log(this.state.user);
+      this.props.updateUserInfo({email: this.state.email})
+      this.props.updateUser({user: this.state.user})
+    }
   }
 
   render() {
@@ -119,12 +126,12 @@ class Release extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { selected } = reduxState;
+  const { selected, user, email } = reduxState;
   return {
-    selected
+    selected, user, email
   };
 }
 
 export default connect(mapStateToProps, {
-  updateSelected
+  updateSelected, updateUser, updateUserInfo
 })(Release);

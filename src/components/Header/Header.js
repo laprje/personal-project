@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { updateUserInfo } from "../../ducks/reducer";
+import { updateUserInfo, updateUser } from "../../ducks/reducer";
 import { connect } from "react-redux";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -39,15 +39,24 @@ class Header extends Component {
             <h2>AutoValue</h2>
             <i className="fas fa-check-double"></i>
           </div>
+
           <div className="button-container">
+            <Link className="username" to="/profile">
+              <div className="profile-link">
+                <h3>Hello, {this.props.email}</h3>
+                <button className="icon">
+                  <i className="fas fa-user"></i>
+                </button>
+              </div>
+            </Link>
             <Link to="/release">
               <button className="icon">
-              <i className="fas fa-exclamation-circle"></i>
+                <i className="fas fa-exclamation-circle"></i>
               </button>
             </Link>
             <Link to="/vehicle">
               <button className="icon">
-              <i className="fas fa-car"></i>
+                <i className="fas fa-car"></i>
               </button>
             </Link>
             <Link to="/home">
@@ -55,16 +64,7 @@ class Header extends Component {
                 <i className="fas fa-home"></i>
               </button>
             </Link>
-            <Link to="/profile">
-              <div className="profile-link">
-                <button className="icon">
-                  <i className="fas fa-user"></i>
-                </button>
-                {/* <div className="email">
-                  {this.state.user.email && <h4>{this.state.user.email}</h4>}
-                </div> */}
-              </div>
-            </Link>
+
             <Link to="/">
               <button className="logout-btn" onClick={this.logout}>
                 Log out
@@ -77,10 +77,13 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(reduxState) {
+  const { user, email, user_id } = reduxState;
   return {
-    email: state.email
+    user,
+    email,
+    user_id
   };
 }
 
-export default connect(mapStateToProps, { updateUserInfo })(Header);
+export default connect(mapStateToProps, { updateUserInfo, updateUser })(Header);

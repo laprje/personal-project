@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import { connect } from "react-redux";
-import { updateMake, updateModel, updateYear, updateUserInfo } from "../../ducks/reducer";
+import {
+  updateMake,
+  updateModel,
+  updateYear,
+  updateUserInfo
+} from "../../ducks/reducer";
 import "./Wizard.css";
 import axios from "axios";
 
@@ -52,12 +57,12 @@ class Wizard1 extends Component {
   }
 
   componentWillMount() {
-    if(!this.props.email && !this.props.user_id) {
-      this.props.history.push('/')
+    if (!this.props.email && !this.props.user_id) {
+      this.props.history.push("/");
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     axios
       .get(
         "https://www.trueavm.com/trueavm/autoMakes.do?key=85ut2hrj7ps4u8xwhv64"
@@ -65,6 +70,15 @@ class Wizard1 extends Component {
       .then(res => {
         this.setState({ makes: res.data });
       });
+    await axios.get("/auth/getSession").then(res => {
+      // console.log(res.data)
+      this.setState({ user: res.data });
+    });
+    if (!this.state.user.email) {
+      this.props.history.push("/");
+    } else {
+      console.log(this.state.user);
+    }
   }
 
   getModels() {
@@ -115,10 +129,14 @@ class Wizard1 extends Component {
                 return <option value={el.value}>{el}</option>;
               })}
             </select>
-            <select className="year" name="year" onChange={e => {
-              this.setState({ chosenYear: e.target.value})
-              updateYear(e.target.value)
-              }}>
+            <select
+              className="year"
+              name="year"
+              onChange={e => {
+                this.setState({ chosenYear: e.target.value });
+                updateYear(e.target.value);
+              }}
+            >
               <option>Select A Year</option>
               {this.state.years.map(el => {
                 return <option value={el.value}>{el}</option>;
@@ -151,7 +169,7 @@ function mapStateToProps(reduxState) {
     make,
     model,
     year,
-    email, 
+    email,
     user_id
   };
 }

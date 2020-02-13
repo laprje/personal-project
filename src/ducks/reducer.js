@@ -1,4 +1,5 @@
 const initialState = {
+    user: {},
     email: '',
     user_id: '',
     savedCars: '',
@@ -14,6 +15,7 @@ const initialState = {
 
 //action constants
 const UPDATE_USER_INFO = "UPDATE_USER_INFO";
+const UPDATE_USER = "UPDATE_USER"
 const UPDATE_SAVED = "UPDATE_SAVED";
 const UPDATE_MAKE = "UPDATE_MAKE";
 const UPDATE_SECOND_MAKE = "UPDATE_SECOND_MAKE"
@@ -30,6 +32,13 @@ export function updateUserInfo(userObj) {
         type: UPDATE_USER_INFO,
         payload: userObj
     };
+}
+
+export function updateUser(user) {
+    return {
+        type: UPDATE_USER_INFO,
+        payload: user
+    }
 }
 
 export function updateLoggedIn(loggedIn) {
@@ -102,6 +111,8 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case UPDATE_USER_INFO:
             return { ...state, ...action.payload };
+        case UPDATE_USER:
+            return {...state, ...action.payload};
         case UPDATE_MAKE:
             return {...state, ...action.payload };
         case UPDATE_MODEL:
