@@ -85,6 +85,12 @@
   color: rgb(99, 99, 99);
 }
 
+.card-body h5 {
+  color: rgb(99, 99, 99);
+}
+
+
+
 #card-header {
   position: sticky;
 }

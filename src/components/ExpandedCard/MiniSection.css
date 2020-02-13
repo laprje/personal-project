@@ -29,6 +29,7 @@
     list-style-type: none;
     font-size: 13px;
     margin: 0px;
+    line-height: .5em;
   }
 
   .mini-header {
