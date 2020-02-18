@@ -430,7 +430,7 @@ class Vehicle extends Component {
               }
               {this.state.secondCar && (
                 <>
-                  <div className="inputs">
+                  <div className="vehicle-inputs">
                     <select
                       className="make"
                       name="make"
