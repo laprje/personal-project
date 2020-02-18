@@ -72,6 +72,7 @@ class Release extends Component {
             <h1>
               Welcome to Releases!<br></br>(Beta)
             </h1>
+              <button className="add-button"><i className="fas fa-plus"></i></button>
             <div className="release">
               <div className="card-container" id="scroll-style">
                 <div className="size-limit">

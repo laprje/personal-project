@@ -3,6 +3,40 @@
     
 }
 
+.add-button {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+    border: none;
+    background: ghostwhite;
+    border-radius: 90%;
+    color: #30BCED;
+    font-size: 30px;
+    box-shadow: 1px 1px;
+	-webkit-box-shadow: 0 0 6px rgba(0,0,0,0.3);
+	transition: ease-in-out;
+}
+
+.add-button:hover {
+    
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+  
+  .add-button:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  }
+
 .release {
     margin: 0 15px;
     display: flex;
