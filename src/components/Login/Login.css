@@ -24,7 +24,7 @@
   transform: translate(-50%, -10%);
   background-color: #e6e8e6;
   width: 400px;
-  height: 320px;
+  height: 340px;
   border-radius: 10px;
   opacity: .88;
   
@@ -32,14 +32,15 @@
 
 .login h5 {
   color: #3f5761;
+  margin-bottom: 0px;
 }
 
 .login .inputs {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -70%);
-  margin-bottom: 20px;
+  transform: translate(-50%, -160%);
+  margin-bottom: 0px;
   margin-top: 0px;
 }
 
@@ -57,11 +58,14 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 40%);
+  transform: translate(-50%, -50%);
   margin-top: 50px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
 }
 
-.buttons button {
+/* .buttons button {
   margin: 0 5px;
   background: ghostwhite;
   border-radius: 5px;
@@ -70,7 +74,7 @@
   height: 25px;
   font-size: 15px;
   font-weight: 800;
-}
+} */
 
 .by-stripe {
     width: 60%;

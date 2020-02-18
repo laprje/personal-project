@@ -361,7 +361,7 @@ class Vehicle extends Component {
               //FIRST CAR////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
             <div className="search-row">
-              <div className="inputs">
+              <div className="vehicle-inputs">
                 <h3>Select your car</h3>
               <select
                   className="count"
@@ -370,7 +370,7 @@ class Vehicle extends Component {
                   onChange={e => {
                     this.setState({ chosenCount: e.target.value }, () => {
                       this.changeCount()
-                      console.log(this.state)
+                      // console.log(this.state)
                     });
                     // this.props.updateCount(e.target.value);    you may need to make a redux function to store state.
                   }}

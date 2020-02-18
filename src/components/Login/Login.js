@@ -4,8 +4,6 @@ import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import { updateUserInfo } from "../../ducks/reducer";
 import "./Login.css";
-import { StripeProvider, Elements } from "react-stripe-elements";
-import StripeForm from "./StripeForm";
 
 import {TextField} from "@material-ui/core";
 import {Button} from '@material-ui/core'
@@ -61,27 +59,6 @@ class Login extends Component {
     this.setState({ [key]: value });
   };
 
-  register = () => {
-    const { email, password } = this.state;
-    axios
-      .post("/auth/register", { email, password })
-      .then(res => {
-        Swal.fire({
-          title: "Welcome to AutoValue!",
-          icon: "success"
-        });
-        axios 
-          .post('')
-        this.props.updateUserInfo(res.data.user);
-        this.props.history.push("/home");
-      })
-      .catch(err => {
-        Swal.fire({
-          title: `Oops! Please try again.`,
-          icon: "warning"
-        });
-      });
-  };
 
   login = () => {
     const { email, password } = this.state;
@@ -103,9 +80,7 @@ class Login extends Component {
       });
   };
 
-  toggleRegister = () => {
-    this.setState({ toggleRegister: !this.state.toggleRegister });
-  };
+ 
 
   toggleClassName = () => {
     if (this.state.blurClass === "blurNo") {
@@ -119,29 +94,7 @@ class Login extends Component {
     }
   };
 
-  registerButton = () => {
-    //try to get it so that when a user tries to register an email that already has an account
-    //that it will stop the process before getting to stripe.
-   
-      this.toggleRegister();
-      this.toggleClassName();
-    
-    // const {email} = this.state
-    // console.log('hit', email)
-    // axios.get("/api/user/:email", {email}).then(res => {
-    //   console.log(res)
-      // if(res) {
-      //   Swal.fire({
-      //     title: `A user with that email already exists!`,
-      //     icon: "error"
-      //   });
-      // } else {
-      //   this.toggleRegister();
-      //   this.toggleClassName();
-      // }
-    // });
-    
-  };
+ 
 
   render() {
     return (
@@ -156,7 +109,7 @@ class Login extends Component {
           </div>
           
           <div className="login">
-          <h5>To test existing user: email: user  password: user. <br></br> To test stripe register function, type username and password and hit register.</h5>
+          {/* <h5>To test existing user: email: user  password: user. <br></br> To test stripe register function, type username and password and hit register.</h5> */}
             <div className="inputs">
               {//material ui core component
               }
@@ -190,26 +143,14 @@ class Login extends Component {
                 onChange={e => this.handleChange("email", e.target.value)}
               /> */}
             </div>
-            <br></br>
-
             <div className="buttons">
-              <Button onClick={this.registerButton}>Register</Button>
-              <Button onClick={this.login}>Log In</Button>
+              <Button className="login-btn" onClick={this.login}>Log In</Button>
+              <h4>OR Create an Account Here: </h4>
+              <Button onClick={() => this.props.history.push('/register')}>Register</Button>
             </div>
           </div>
         </div>
-        {this.state.toggleRegister ? (
-          <div className="stripe">
-            <StripeProvider apiKey="pk_test_bPnytOMZMGmHmoSiQPtIQu9J00YjPot9LC">
-              <Elements>
-                <StripeForm
-                  register={this.register}
-                  registerButton={this.registerButton}
-                />
-              </Elements>
-            </StripeProvider>
-          </div>
-        ) : null}
+        
       </div>
     );
   }

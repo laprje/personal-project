@@ -87,7 +87,7 @@
     width: 1400px;
 }
 
-.vehicle .inputs {
+.vehicle .vehicle-inputs {
     margin-top: 70px;
     display: flex;
     flex-direction: row;
@@ -95,7 +95,7 @@
     align-items: flex-end;
   }
 
-  .vehicle .inputs select {
+  .vehicle .vehicle-inputs select {
     height: 40px;
     width: 200px;
     margin-left: 10px;
@@ -113,7 +113,7 @@
     justify-content: center;
   }
   
-  .vehicle .inputs option {
+  .vehicle .vehicle-inputs option {
       font-family: 'Public Sans', sans-serif;
   }
 

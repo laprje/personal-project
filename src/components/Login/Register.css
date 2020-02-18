@@ -1,0 +1,52 @@
+
+
+.all {
+    background-image: url("/assets/background.jpg");
+    height: 100vh;
+    width: 100vw;
+    background-size: auto 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .register {
+    background-color: #e6e8e6;
+    width: 400px;
+    height: 360px;
+    border-radius: 10px;
+    opacity: .88;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+  }
+
+  .inputs {
+      display: flex;
+      flex-direction: column;
+      width: 320px;
+      margin-bottom: 30px;
+  }
+
+  .big-logo i {
+    color: #6ae2a0;
+    font-size: 65px;
+  }
+
+  .all h1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -325%);
+    color: ghostwhite;
+    font-family: "Alatsi", sans-serif;
+    font-size: 80px;
+    text-decoration: underline;
+    text-decoration-color: #30bced;
+  }
+
+  

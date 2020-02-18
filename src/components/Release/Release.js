@@ -50,7 +50,6 @@ class Release extends Component {
     if (!this.state.user.email) {
       this.props.history.push("/");
     } else {
-      console.log(this.state.user);
       this.props.updateUserInfo({email: this.state.email})
       this.props.updateUser({user: this.state.user})
     }

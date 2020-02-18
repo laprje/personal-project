@@ -229,8 +229,8 @@ class Profile extends Component {
                   <button
                     className="edit-btn"
                     onClick={() => {
-                      // this.toggleEdit();
-                      this.hehe()
+                      this.toggleEdit();
+                      // this.hehe()
                     }}
                   >
                     Change Email

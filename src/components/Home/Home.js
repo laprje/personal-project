@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import { updateLoggedIn } from "../../ducks/reducer";
 import { connect } from "react-redux";
 import Loading from "../Loading/Loading";
 import Axios from "axios";
@@ -31,7 +30,7 @@ class Home extends Component {
     if (!this.state.user.email) {
       this.props.history.push("/");
     } else {
-      console.log(this.state.user);
+      // console.log(this.state.user);
       this.props.updateUserInfo({email: this.state.email})
       this.props.updateUser({user: this.state.user})
     }
@@ -48,13 +47,13 @@ class Home extends Component {
             </div>
           </>
         )}
-        <div className="all">
+        <div className="home-all">
           <Header className="home-header" />
           <div className="big-h1">
             <h1>Find the value of any car, any time.</h1>
           </div>
           <div className="home">
-            <div className="buttons">
+            <div className="button">
               <Link to="/wizard1">
                 <button className="get-started">Get Started</button>
               </Link>

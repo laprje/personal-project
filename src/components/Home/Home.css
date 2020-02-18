@@ -5,30 +5,31 @@
     
 } */
 
-.App {
+* {
   overflow: hidden;
 }
 
-.all .home-header {
+.home-all .home-header {
   position: fixed;
 }
 
-.home {
+.home-all {
   overflow: hidden;
-  width: 100vw;
-  height: 92vh;
+}
 
-  overflow: hidden;
+.home {
+  width: 100vw;
+  height: 93.6vh;
   color: ghostwhite;
   background-image: url("/assets/background.jpg");
-  background-size: cover;
+  background-size: 120vh auto ;
   background-repeat: no-repeat;
 
   padding: none;
   margin: 0px;
 }
 
-.buttons {
+.button {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -36,7 +37,7 @@
   margin: 0 0;
 }
 
-.buttons button {
+.button button {
   background: ghostwhite;
   border-radius: 5px;
   color: #30bced;
