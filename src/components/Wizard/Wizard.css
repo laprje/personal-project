@@ -13,7 +13,7 @@
   left: 0;
 }
 
-.wizard .inputs {
+.wizard .wiz-inputs {
   margin-top: 70px;
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@
   align-items: flex-end;
 }
 
-.wizard .inputs select {
+.wizard .wiz-inputs select {
   height: 40px;
   width: 200px;
   margin-left: 10px;
@@ -33,7 +33,7 @@
   font-weight: 100px;
 }
 
-.wizard .inputs option {
+.wizard .wiz-inputs option {
     font-family: 'Public Sans', sans-serif;
 }
 
@@ -41,9 +41,20 @@
   font-family: "Alatsi", sans-serif;
 }
 
-.wizard .buttons {
-  margin: 0 0;
-  position: fixed;
+.wizard .wiz-buttons {
+  margin: 20px 0;
+  
+}
+
+.wiz-buttons button {
+  background: ghostwhite;
+  border-radius: 5px;
+  color: #30bced;
+  border: none;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0px 20px;
 }
 
 /* media queries */
@@ -81,7 +92,7 @@
 }
 
 @media (max-height: 721px) {
-    .wizard .buttons {
+    .wizard .wiz-buttons {
         margin-top: 20px;
         box-sizing: border-box;
         top: 50%;
@@ -91,7 +102,7 @@
 }
 
 @media (max-height: 680px) {
-    .wizard .buttons {
+    .wizard .wiz-buttons {
         margin-top: 20px;
         box-sizing: border-box;
         top: 50%;

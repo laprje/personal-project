@@ -99,7 +99,7 @@ class Wizard1 extends Component {
         <Header />
         <div className="container">
           <h2 className="wizard-header">Find Your Car</h2>
-          <div className="inputs">
+          <div className="wiz-inputs">
             <select
               className="make"
               name="make"
@@ -143,7 +143,7 @@ class Wizard1 extends Component {
               })}
             </select>
           </div>
-          <div className="buttons">
+          <div className="wiz-buttons">
             <button
               onClick={() => this.props.history.push("/home")}
               className="back-button"
